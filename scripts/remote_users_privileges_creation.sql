@@ -24,7 +24,7 @@ Asignar privilegios CRUD sobre la base db_test.
 
 GRANT SELECT, INSERT, UPDATE, DELETE
 ON db_test.*
-TO 'nazul.gutierrez'@'%';
+TO 'carlos.cabrera'@'192.168.1.64';
 
 
 /* ============================================================
@@ -70,10 +70,10 @@ GRANT 'superadmin' TO 'fernando.miguel'@'%';
 -- Este debe ser el Prof. Marco
 GRANT 'admin' TO 'marco.ramirez'@'%';
 -- IZQUIERDA
-GRANT 'support' TO 'nazul.gutierrez'@'%';
+GRANT 'support' TO 'carlos.cabrera'@'192.168.1.64';
 -- DERECHA
-GRANT 'seller' TO 'carlos.cabrera'@'%';
-GRANT 'seller' TO 'nazul.gutierrez'@'%';
+GRANT 'seller' TO 'carlos.cabrera'@'192.168.1.64';
+GRANT 'seller' TO 'carlos.cabrera'@'192.168.1.64';
 
 /* ============================================================
    ESTABLECER ROLES PREDETERMINADOS
@@ -88,12 +88,12 @@ SET DEFAULT ROLE 'admin'
 TO 'fernando.miguel'@'%';
 
 SET DEFAULT ROLE 'support'
-TO 'nazul.gutierrez'@'%';
+TO 'carlos.cabrera'@'192.168.1.64';
 
 SET DEFAULT ROLE 'seller'
-TO 'carlos.cabrera'@'%';
+TO 'carlos.cabrera'@'192.168.1.64';
 SET DEFAULT ROLE 'seller'
-TO 'nazul.gutierrez'@'%';
+TO 'carlos.cabrera'@'192.168.1.64';
 
 
 /* ============================================================
