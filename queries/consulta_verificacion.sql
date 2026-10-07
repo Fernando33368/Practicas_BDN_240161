@@ -44,8 +44,6 @@ GROUP BY
 ORDER BY b.operation_date asc;
   
   
-  
-
 /* 4. Cuantos registros existen en la tabla bitácora? */
 SELECT COUNT(*) AS total_registros FROM tb_logs;
 
