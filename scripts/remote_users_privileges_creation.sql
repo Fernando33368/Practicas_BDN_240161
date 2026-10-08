@@ -58,6 +58,8 @@ TO 'admin';
 /* SUPPORT */
 GRANT SELECT, INSERT, UPDATE ON db_test.tb_users TO 'support';
 GRANT SELECT, INSERT, UPDATE ON db_test.tb_products TO 'support';
+
+GRANT EXECUTE ON PROCEDURE db_test.sp_soft_delete_user TO 'support'@'%';
 /* SELLER */
 GRANT SELECT, INSERT, UPDATE ON db_test.tb_products TO 'seller';
 
@@ -70,10 +72,10 @@ GRANT 'superadmin' TO 'fernando.miguel'@'%';
 -- Este debe ser el Prof. Marco
 GRANT 'admin' TO 'marco.ramirez'@'%';
 -- IZQUIERDA
-GRANT 'support' TO 'carlos.cabrera'@'192.168.1.64';
+GRANT 'support' TO 'carlos.cabrera'@'%';
 -- DERECHA
-GRANT 'seller' TO 'carlos.cabrera'@'192.168.1.64';
-GRANT 'seller' TO 'carlos.cabrera'@'192.168.1.64';
+GRANT 'seller' TO 'carlos.cabrera'@'%';
+GRANT 'seller' TO 'carlos.cabrera'@'%';
 
 /* ============================================================
    ESTABLECER ROLES PREDETERMINADOS
@@ -88,12 +90,12 @@ SET DEFAULT ROLE 'admin'
 TO 'fernando.miguel'@'%';
 
 SET DEFAULT ROLE 'support'
-TO 'carlos.cabrera'@'192.168.1.64';
+TO 'carlos.cabrera'@'%';
 
 SET DEFAULT ROLE 'seller'
-TO 'carlos.cabrera'@'192.168.1.64';
+TO 'carlos.cabrera'@'%';
 SET DEFAULT ROLE 'seller'
-TO 'carlos.cabrera'@'192.168.1.64';
+TO 'carlos.cabrera'@'%';
 
 
 /* ============================================================
