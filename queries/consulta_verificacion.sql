@@ -66,10 +66,11 @@ SHOW PROCEDURE STATUS WHERE Db = 'db_test';
 
 /* 10. Verificación de Productos*/
 /* Contabilizar los productos */
-SELECT COUNT(*) FROM tb_products;
+SELECT COUNT(*) AS total_productos FROM tb_products;
 
 /* Visualizar todos los productos */
 SELECT * FROM tb_products;
 
 /* Consulta para saber la trazabilidad de los productos */
-SELECT * FROM vw_trazabilidad_productos LIMIT 10;
+SELECT * FROM vw_trazabilidad_productos ORDER BY ID ASC LIMIT 10;
+
