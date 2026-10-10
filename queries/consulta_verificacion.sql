@@ -74,3 +74,13 @@ SELECT * FROM tb_products;
 /* Consulta para saber la trazabilidad de los productos */
 SELECT * FROM vw_trazabilidad_productos ORDER BY ID ASC LIMIT 10;
 
+/* 11. Contabilizar los productos */
+SELECT COUNT(*) FROM tb_products;
+/* 12. Consulta para saber la trazabilidad de los productos */
+select * from vw_trazabilidad_productos ORDER BY fecha desc limit 10;
+/* 13. Consulta la trazabilidad de usuarios */
+select * from vw_trazabilidad_usuarios ORDER BY operation_date asc;
+/* 14. Contabilizar cuantos productos por tabla hay por usuario */
+SELECT COUNT(*), vp.usuario
+FROM vw_trazabilidad_productos vp
+GROUP BY vp.usuario;
