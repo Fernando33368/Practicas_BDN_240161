@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "ok": true,
+  "command": "finalize",
+  "status": "pass",
+  "type": "explainer",
+  "quality": "showcase",
+  "specification": {
+    "path": "C:\\Practicas_BDN_240161\\.archify\\explainer-diccionario-neon-20261022-120000\\candidate.archify.md",
+    "sha256": "15ced938184461cbcc438cee7e67c807170753fc341260d382638e0c71e2cf89",
+    "bytes": 27544
+  },
+  "artifact": {
+    "path": "C:\\Practicas_BDN_240161\\docs\\index.html",
+    "sha256": "eca213a4a7ef6c5f267ce7e96bc533030825b0d06d7a6bc8e240a0864b334e3c",
+    "bytes": 407508
+  },
+  "gates": {
+    "validate": "pass",
+    "deliver": "pass",
+    "check": "pass",
+    "browser-check": "not-run"
+  },
+  "diagnostics": [],
+  "diagnosticSummary": {
+    "total": 0,
+    "shown": 0,
+    "truncated": false
+  },
+  "evidence": {
+    "receipt": "C:\\Practicas_BDN_240161\\docs\\index.finalize.json",
+    "summaryReceipt": "C:\\Practicas_BDN_240161\\docs\\index.finalize-summary.json"
+  },
+  "visualReview": "not-requested",
+  "durationMs": 8366,
+  "browserCheck": {
+    "requested": false,
+    "ran": false
+  }
+}
