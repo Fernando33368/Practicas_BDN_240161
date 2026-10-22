@@ -5,6 +5,8 @@
 CREATE USER IF NOT EXISTS 'fernando.miguel'@'%' IDENTIFIED BY '240161';
 CREATE USER IF NOT EXISTS 'nazul.gutierrez'@'%' IDENTIFIED BY '240162';
 CREATE USER IF NOT EXISTS 'carlos.cabrera'@'%' IDENTIFIED BY '240201';
+CREATE USER IF NOT EXISTS 'app.web'@'%' IDENTIFIED BY 'Web123';
+CREATE USER IF NOT EXISTS 'app.movil'@'%' IDENTIFIED BY 'Mobile890';
 
 
 /* ============================================================
@@ -22,9 +24,7 @@ GRANT ALL PRIVILEGES ON *.* TO 'fernando.miguel'@'%';
 Asignar privilegios CRUD sobre la base db_test.
 */
 
-GRANT SELECT, INSERT, UPDATE, DELETE
-ON db_test.*
-TO 'carlos.cabrera'@'192.168.1.64';
+GRANT SELECT, INSERT, UPDATE, DELETE ON db_test_240161.* TO 'carlos.cabrera'@'192.168.1.64';
 
 
 /* ============================================================
@@ -45,23 +45,26 @@ CREATE ROLE IF NOT EXISTS 'user_not_registered';
    ============================================================ */
 
 /* SUPERADMIN */
-GRANT ALL PRIVILEGES
-ON *.*
-TO 'superadmin';    
+GRANT ALL PRIVILEGES ON *.* TO 'superadmin';    
 
 /* ADMIN */
-GRANT ALL PRIVILEGES
-ON db_test.*
-TO 'admin';
+GRANT ALL PRIVILEGES ON db_test_240161.* TO 'admin';
 
 
 /* SUPPORT */
-GRANT SELECT, INSERT, UPDATE ON db_test.tb_users TO 'support';
-GRANT SELECT, INSERT, UPDATE ON db_test.tb_products TO 'support';
+GRANT SELECT, INSERT, UPDATE ON db_test_240161.tb_users TO 'support';
+GRANT SELECT, INSERT, UPDATE ON db_test_240161.tb_products TO 'support';
+GRANT EXECUTE ON PROCEDURE db_test_240161.sp_soft_delete_user TO 'support'@'%';
 
-GRANT EXECUTE ON PROCEDURE db_test.sp_soft_delete_user TO 'support'@'%';
+
 /* SELLER */
-GRANT SELECT, INSERT, UPDATE ON db_test.tb_products TO 'seller';
+GRANT SELECT, INSERT, UPDATE ON db_test_240161.tb_products TO 'seller';
+
+/*Buyer*/
+GRANT SELECT, INSERT, UPDATE ON db_test_240161.tbcarts TO 'buyer';
+GRANT SELECT, INSERT, UPDATE ON db_test_240161.tbd_carts_items TO 'buyer';
+GRANT SELECT, INSERT ON db_test_240161.tb_buyer_orders TO 'buyer';
+GRANT SELECT, INSERT, UPDATE ON db_test_240161.tbd_users_wishlist_products TO 'buyer';
 
 /* ============================================================
    ASIGNACIÓN DE ROLES A LOS USUARIOS
@@ -77,6 +80,8 @@ GRANT 'support' TO 'carlos.cabrera'@'%';
 GRANT 'seller' TO 'carlos.cabrera'@'%';
 GRANT 'seller' TO 'carlos.cabrera'@'%';
 
+GRANT 'user_not_registered' TO ''@'%';
+
 /* ============================================================
    ESTABLECER ROLES PREDETERMINADOS
    ============================================================ */
@@ -86,16 +91,12 @@ Esto permite que el rol se active automáticamente cuando
 el usuario inicia sesión.
 */
 
-SET DEFAULT ROLE 'admin'
-TO 'fernando.miguel'@'%';
+SET DEFAULT ROLE 'admin' TO 'fernando.miguel'@'%';
 
-SET DEFAULT ROLE 'support'
-TO 'carlos.cabrera'@'%';
+SET DEFAULT ROLE 'support' TO 'carlos.cabrera'@'%';
 
-SET DEFAULT ROLE 'seller'
-TO 'carlos.cabrera'@'%';
-SET DEFAULT ROLE 'seller'
-TO 'carlos.cabrera'@'%';
+SET DEFAULT ROLE 'seller' TO 'carlos.cabrera'@'%';
+SET DEFAULT ROLE 'seller' TO 'carlos.cabrera'@'%';
 
 
 /* ============================================================
