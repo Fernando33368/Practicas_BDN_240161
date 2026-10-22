@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Diccionario de datos · db_test_240161</title>
+<link href="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text y=%22.9em%22 font-size=%2290%22&gt;📘&lt;/text&gt;&lt;/svg&gt;" rel="icon"/>
+<style>
+:root{color-scheme:dark;--bg:#07070f;--panel:#0f0f22;--ink:#e9f4ff;--mute:#9aa6c9;--line:#26264d;--acc:#00f0ff;--acc2:rgba(0,240,255,.10);--pink:#ff2bd6;--lime:#b6ff00;--pk:#ffb000;--fk:#00e5ff;--uq:#e070ff;--code:#16162f}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:16px}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 "IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;display:grid;grid-template-columns:280px 1fr;min-height:100vh}
+code,.mono{font-family:"IBM Plex Mono",ui-monospace,Consolas,monospace;font-size:.88em}
+aside{position:sticky;top:0;height:100vh;overflow:auto;background:var(--panel);border-right:1px solid var(--line);padding:20px 16px}
+aside h1{font-size:1.05rem;margin:0 0 2px}
+aside .sub{color:var(--mute);font-size:.82rem;margin:0 0 14px}
+#q{width:100%;padding:9px 10px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink);font:inherit}
+#q:focus,a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+aside h2{font-size:.85rem;color:var(--mute);margin:18px 0 4px;font-weight:600}
+aside a{display:block;padding:4px 8px;border-radius:5px;color:var(--ink);text-decoration:none;font-size:.88rem}
+aside a:hover{background:var(--acc2)}
+main{padding:32px clamp(16px,4vw,48px);max-width:1180px;min-width:0}
+h2.sec{font-size:1.35rem;margin:40px 0 12px}
+.lead{max-width:70ch;color:var(--mute)}
+.stats{display:flex;gap:28px;flex-wrap:wrap;margin:18px 0}
+.stats b{font-size:1.6rem;display:block;line-height:1.1}
+.stats span{color:var(--mute);font-size:.85rem}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:20px;margin:0 0 22px}
+.card h3{margin:0;font-size:1.15rem}
+.card h3 .tag{font-size:.72rem;font-weight:500;color:var(--acc);background:var(--acc2);padding:2px 8px;border-radius:99px;margin-left:8px;vertical-align:middle}
+.card p{margin:6px 0 12px}
+.meta{color:var(--mute);font-size:.84rem;margin-bottom:12px}
+.wrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:720px;font-size:.88rem}
+th,td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-weight:600;color:var(--mute);font-size:.8rem;background:var(--bg)}
+td:nth-child(1){font-weight:600;white-space:nowrap}
+.k{display:inline-block;font-size:.7rem;font-weight:700;padding:1px 6px;border-radius:4px;margin-right:3px;border:1px solid currentColor}
+.PK{color:var(--pk)}.FK{color:var(--fk)}.UQ{color:var(--uq)}.IX{color:var(--mute)}
+h4{margin:16px 0 6px;font-size:.92rem}
+ul.rel{margin:0;padding-left:18px;font-size:.88rem}
+.note{border-left:3px solid var(--pk);background:var(--acc2);padding:10px 14px;margin:8px 0;border-radius:0 6px 6px 0;font-size:.9rem}
+details summary{cursor:pointer;color:var(--acc);font-size:.88rem;margin-top:10px}
+pre{background:var(--code);padding:12px;border-radius:6px;overflow:auto;font-size:.8rem;white-space:pre-wrap}
+.hide{display:none!important}
+mark{background:var(--lime);color:#000;border-radius:2px}
+body{background:radial-gradient(900px 500px at 85% -5%,rgba(255,43,214,.16),transparent 60%),radial-gradient(800px 500px at 10% 105%,rgba(0,240,255,.12),transparent 60%) fixed,var(--bg)}
+aside{border-right-color:rgba(0,240,255,.35);box-shadow:4px 0 24px rgba(0,240,255,.07)}
+aside h1{color:var(--acc);text-shadow:0 0 10px rgba(0,240,255,.6)}
+aside h2{color:var(--pink)}
+aside a:hover{color:var(--acc);text-shadow:0 0 8px rgba(0,240,255,.7)}
+main>h1{color:#fff;text-shadow:0 0 12px rgba(255,43,214,.75),0 0 30px rgba(0,240,255,.4)}
+main a{color:var(--acc)}
+h2.sec{color:var(--lime);text-shadow:0 0 10px rgba(182,255,0,.45)}
+.stats b{color:var(--pink);text-shadow:0 0 12px rgba(255,43,214,.7)}
+.card{border-color:rgba(0,240,255,.35);box-shadow:0 0 0 1px rgba(0,240,255,.06),0 0 20px rgba(0,240,255,.10)}
+.card h3 code{color:var(--lime);text-shadow:0 0 8px rgba(182,255,0,.55)}
+.card h3 .tag{color:var(--pink);background:rgba(255,43,214,.12);box-shadow:0 0 8px rgba(255,43,214,.35)}
+th{color:var(--acc)}
+td:nth-child(1){color:#fff}
+.k{box-shadow:0 0 7px currentColor;text-shadow:0 0 6px currentColor}
+.note{border-left-color:var(--pink);background:rgba(255,43,214,.08);box-shadow:0 0 14px rgba(255,43,214,.15)}
+#q{border-color:rgba(0,240,255,.4)}
+#q:focus{box-shadow:0 0 14px rgba(0,240,255,.6)}
+#empty{display:none;color:var(--mute)}
+@media(max-width:820px){body{grid-template-columns:1fr}aside{position:static;height:auto;border:0;border-bottom:1px solid var(--line)}}
+@media print{aside{display:none}body{display:block}}
+
+/* Adaptación de las tarjetas y tablas del diccionario de db_test_240161 */
+.table-card,.card{background:var(--panel);border:1px solid rgba(0,240,255,.35);border-radius:8px;padding:0;margin:0 0 22px;overflow:hidden;box-shadow:0 0 0 1px rgba(0,240,255,.06),0 0 20px rgba(0,240,255,.10)}
+.table-head{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:16px 18px;border-bottom:1px solid var(--line);background:rgba(0,240,255,.045)}
+.table-head h3{margin:0;font-size:1.05rem}.table-head h3 code{color:var(--lime);text-shadow:0 0 8px rgba(182,255,0,.55)}
+.table-head span{font-size:.72rem;font-weight:500;color:var(--pink);background:rgba(255,43,214,.12);padding:2px 8px;border-radius:99px;border:1px solid rgba(255,43,214,.25)}
+.table-wrap{overflow-x:auto;padding:0 12px 8px}.table-wrap table{min-width:850px}
+details{padding:13px 18px;border-top:1px solid var(--line)} summary{cursor:pointer;color:var(--acc);font-size:.88rem;font-weight:600}
+pre{white-space:pre-wrap;overflow-wrap:anywhere;background:var(--code);padding:12px;border-radius:6px;color:var(--ink);font-size:.8rem;overflow:auto}
+.note,.muted{color:var(--mute)} .section-title{margin-top:36px;color:var(--lime)}
+#kind{width:100%;margin-top:8px;background:var(--bg);color:var(--ink);border:1px solid rgba(0,240,255,.4);border-radius:6px;padding:9px 10px;font:inherit}
+@media(max-width:820px){body{grid-template-columns:1fr}aside{position:static;height:auto;border-right:0;border-bottom:1px solid rgba(0,240,255,.35)}main{padding:22px 16px}}
+</style>
+</head>
+<body><aside><h1>Diccionario de datos</h1><p class="sub">db_test_240161 · MySQL 8.0.42</p><input aria-label="Buscar" id="q" placeholder="Buscar tabla, campo o descripción" type="search"/><select aria-label="Filtrar por tipo" id="kind"><option value="all">Tablas y vistas</option><option value="tables">Solo tablas</option><option value="views">Solo vistas</option></select><nav id="nav"><h2>Tablas principales</h2><a data-n="tb_carts" href="#tb_carts">tb_carts</a><a data-n="tb_logs" href="#tb_logs">tb_logs</a><a data-n="tb_people" href="#tb_people">tb_people</a><a data-n="tb_products" href="#tb_products">tb_products</a><a data-n="tb_user_addresses" href="#tb_user_addresses">tb_user_addresses</a><a data-n="tb_users" href="#tb_users">tb_users</a><h2>Catálogos</h2><a data-n="tbc_categories" href="#tbc_categories">tbc_categories</a><a data-n="tbc_payment_methods_types" href="#tbc_payment_methods_types">tbc_payment_methods_types</a><h2>Detalle y relaciones</h2><a data-n="tbd_address_components" href="#tbd_address_components">tbd_address_components</a><a data-n="tbd_countries" href="#tbd_countries">tbd_countries</a><a data-n="tbd_courtesy_titles" href="#tbd_courtesy_titles">tbd_courtesy_titles</a><a data-n="tbd_genders" href="#tbd_genders">tbd_genders</a><a data-n="tbd_products_categories" href="#tbd_products_categories">tbd_products_categories</a><a data-n="tbd_products_users_providers" href="#tbd_products_users_providers">tbd_products_users_providers</a><a data-n="tbd_user_payment_methods" href="#tbd_user_payment_methods">tbd_user_payment_methods</a><a data-n="tbd_users_wishlist_products" href="#tbd_users_wishlist_products">tbd_users_wishlist_products</a><h2>Vistas</h2><a data-n="vw_total_products_by_category" href="#vw_total_products_by_category">vw_total_products_by_category</a><a data-n="vw_trazabilidad_categorias" href="#vw_trazabilidad_categorias">vw_trazabilidad_categorias</a><a data-n="vw_trazabilidad_categorizacion_productos" href="#vw_trazabilidad_categorizacion_productos">vw_trazabilidad_categorizacion_productos</a><a data-n="vw_trazabilidad_producto_proveedor" href="#vw_trazabilidad_producto_proveedor">vw_trazabilidad_producto_proveedor</a><a data-n="vw_trazabilidad_productos" href="#vw_trazabilidad_productos">vw_trazabilidad_productos</a><a data-n="vw_trazabilidad_usuarios" href="#vw_trazabilidad_usuarios">vw_trazabilidad_usuarios</a><h2>General</h2><a href="#tablas">Tablas</a><a href="#vistas">Vistas</a></nav></aside><main><h1>Diccionario de datos: db_test_240161</h1><p class="lead">Documentación del esquema <code>db_test_240161</code>, generada a partir del respaldo SQL. Describe tablas, columnas, tipos, restricciones, llaves foráneas y vistas.</p><div class="stats" id="stats"><div><b>16</b><span>tablas</span></div><div><b>107</b><span>columnas</span></div><div><b>17</b><span>claves foráneas</span></div><div><b>6</b><span>vistas</span></div></div><p class="note">Nota: el diccionario describe la estructura encontrada en el archivo SQL; no muestra datos de registros.</p><h2 class="sec" id="tablas">Tablas</h2><div id="tables"><section class="card table-card" data-n="tb_carts" data-table="tb_carts" id="tb_carts">
+<h3><code>tb_carts</code><span>5 columnas</span></h3>
+<div class="wrap table-wrap"><table>
+<thead><tr><th>Columna</th><th>Tipo</th><th>Permite NULL</th><th>Predeterminado</th><th>Clave / índice</th><th>Atributos SQL</th></tr></thead>
+<tbody><tr><td><code>ID</code></td><td><code>int unsigned</code></td><td>No</td><td>AUTO_INCREMENT</td><td>PK</td><td>NOT NULL AUTO_INCREMENT</td></tr><tr><td><code>user_ID</code></td><td><code>int unsigned</code></td><td>No</td><td>—</td><td>Único, FK</td><td>NOT NULL</td></tr><tr><td><code>status</code></td><td><code>bit(1)</code></td><td>Sí</td><td>b'1'</td><td>—</td><td>DEFAULT b'1'</td></tr><tr><td><code>creation_date</code></td><td><code>datetime</code></td><td>No</td><td>CURRENT_TIMESTAMP</td><td>—</td><td>NOT NULL DEFAULT CURRENT_TIMESTAMP</td></tr><tr><td><code>last_update</code></td><td><code>datetime</code></td><td>Sí</td><td>NULL</td><td>—</td><td>DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP</td></tr></tbody>
+</table></div>
+<details><summary>Relaciones y claves foráneas (1)</summary><ul><li><code>tb_carts_ibfk_1</code>: (user_ID) → <code>tb_users</code> (ID) </li></ul></details>
+</section><section class="card table-card" data-n="tb_logs" data-table="tb_logs" id="tb_logs">
+<h3><code>tb_logs</code><span>7 columnas</span></h3>
+<div class="wrap table-wrap"><table>
+<thead><tr><th>Columna</th><th>Tipo</th><th>Permite NULL</th><th>Predeterminado</th><th>Clave / índice</th><th>Atributos SQL</th></tr></thead>
+<tbody><tr><td><code>ID</code></td><td><code>int</code></td><td>No</td><td>AUTO_INCREMENT</td><td>PK</td><td>NOT NULL AUTO_INCREMENT</td></tr><tr><td><code>table_name</code></td><td><code>varchar(100)</code></td><td>No</td><td>—</td><td>—</td><td>NOT NULL</td></tr><tr><td><code>table_operation</code></td><td><code>enum('Create','Read','Update','Delete')</code></td><td>No</td><td>—</td><td>—</td><td>NOT NULL</td></tr><tr><td><code>db_user</code></td><td><code>varchar(80)</code></td><td>No</td><td>—</td><td>—</td><td>NOT NULL</td></tr><tr><td><code>operation_description</code></td><td><code>text</code></td><td>No</td><td>—</td><td>—</td><td>NOT NULL</td></tr><tr><td><code>operation_date</code></td><td><code>datetime</code></td><td>No</td><td>CURRENT_TIMESTAMP</td><td>—</td><td>NOT NULL DEFAULT CURRENT_TIMESTAMP</td></tr><tr><td><code>operation_status</code></td><td><code>bit(1)</code></td><td>Sí</td><td>b'1'</td><td>—</td><td>DEFAULT b'1'</td></tr></tbody>
+</table></div>
+<details><summary>Relaciones y claves foráneas (0)</summary><p class="muted">No se declaran claves foráneas.</p></details>
+</section><section class="card table-card" data-n="tb_people" data-table="tb_people" id="tb_people">
+<h3><code>tb_people</code><span>12 columnas</span></h3>
+<div class="wrap table-wrap"><table>
+<thead><tr><th>Columna</th><th>Tipo</th><th>Permite NULL</th><th>Predeterminado</th><th>Clave / índice</th><th>Atributos SQL</th></tr></thead>
+<tbody><tr><td><code>person_ID</code></td><td><code>bigint unsigned</code></td><td>No</td><td>AUTO_INCREMENT</td><td>PK</td><td>NOT NULL AUTO_INCREMENT</td></tr><tr><td><code>user_ID</code></td><td><code>int unsigned</code></td><td>No</td><td>—</td><td>Único, FK</td><td>NOT NULL</td></tr><tr><td><code>courtesy_title_ID</code></td><td><code>char(3)</code></td><td>No</td><td>—</td><td>Índice, FK</td><td>NOT NULL</td></tr><tr><td><code>given_names</code></td><td><code>varchar(150)</code></td><td>No</td><td>—</td><td>—</td><td>NOT NULL</td></tr><tr><td><code>family_names</code></td><td><code>varchar(150)</code></td><td>No</td><td>—</td><td>—</td><td>NOT NULL</td></tr><tr><td><code>birth_date</code></td><td><code>date</code></td><td>Sí</td><td>NULL</td><td>—</td><td>DEFAULT NULL</td></tr><tr><td><code>gender_ID</code></td><td><code>tinyint unsigned</code></td><td>No</td><td>—</td><td>Índice, FK</td><td>NOT NULL</td></tr><tr><td><code>country_code</code></td><td><code>char(2)</code></td><td>No</td><td>—</td><td>Índice, FK</td><td>NOT NULL</td></tr><tr><td><code>phone</code></td><td><code>varchar(25)</code></td><td>Sí</td><td>NULL</td><td>—</td><td>DEFAULT NULL</td></tr><tr><td><code>created_at</code></td><td><code>datetime</code></td><td>No</td><td>CURRENT_TIMESTAMP</td><td>—</td><td>NOT NULL DEFAULT CURRENT_TIMESTAMP</td></tr><tr><td><code>updated_at</code></td><td><code>datetime</code></td><td>No</td><td>CURRENT_TIMESTAMP</td><td>—</td><td>NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP</td></tr><tr><td><code>is_active</code></td><td><code>tinyint(1)</code></td><td>No</td><td>'1'</td><td>—</td><td>NOT NULL DEFAULT '1'</td></tr></tbody>
+</table></div>
+<details><summary>Relaciones y claves foráneas (4)</summary><ul><li><code>fk_people_country</code>: (country_code) → <code>tbd_countries</code> (country_code) </li><li><code>fk_people_courtesy_title</code>: (courtesy_title_ID) → <code>tbd_courtesy_titles</code> (courtesy_title_ID) </li><li><code>fk_people_gender</code>: (gender_ID) → <code>tbd_genders</code> (gender_ID) </li><li><code>fk_people_user</code>: (user_ID) → <code>tb_users</code> (ID) </li></ul></details>
+</section><section class="card table-card" data-n="tb_products" data-table="tb_products" id="tb_products">
+<h3><code>tb_products</code><span>9 columnas</span></h3>
+<div class="wrap table-wrap"><table>
+<thead><tr><th>Columna</th><th>Tipo</th><th>Permite NULL</th><th>Predeterminado</th><th>Clave / índice</th><th>Atributos SQL</th></tr></thead>
+<tbody><tr><td><code>ID</code></td><td><code>int unsigned</code></td><td>No</td><td>AUTO_INCREMENT</td><td>PK</td><td>NOT NULL AUTO_INCREMENT</td></tr><tr><td><code>SKU</code></td><td><code>varchar(50)</code></td><td>No</td><td>—</td><td>Único</td><td>NOT NULL</td></tr><tr><td><code>name</code></td><td><code>varchar(250)</code></td><td>No</td><td>—</td><td>—</td><td>NOT NULL</td></tr><tr><td><code>description</code></td><td><code>text</code></td><td>Sí</td><td>—</td><td>—</td><td></td></tr><tr><td><code>current_price</code></td><td><code>decimal(10,2)</code></td><td>No</td><td>'0.00'</td><td>—</td><td>NOT NULL DEFAULT '0.00'</td></tr><tr><td><code>current_stock</code></td><td><code>int unsigned</code></td><td>No</td><td>'0'</td><td>—</td><td>NOT NULL DEFAULT '0'</td></tr><tr><td><code>status</code></td><td><code>bit(1)</code></td><td>Sí</td><td>b'1'</td><td>—</td><td>DEFAULT b'1'</td></tr><tr><td><code>creation_date</code></td><td><code>datetime</code></td><td>No</td><td>CURRENT_TIMESTAMP</td><td>—</td><td>NOT NULL DEFAULT CURRENT_TIMESTAMP</td></tr><tr><td><code>last_update</code></td><td><code>datetime</code></td><td>No</td><td>—</td><td>—</td><td>NOT NULL ON UPDATE CURRENT_TIMESTAMP</td></tr></tbody>
+</table></div>
+<details><summary>Relaciones y claves foráneas (0)</summary><p class="muted">No se declaran claves foráneas.</p></details>
+</section><section class="card table-card" data-n="tb_user_addresses" data-table="tb_user_addresses" id="tb_user_addresses">
+<h3><code>tb_user_addresses</code><span>7 columnas</span></h3>
+<div class="wrap table-wrap"><table>
+<thead><tr><th>Columna</th><th>Tipo</th><th>Permite NULL</th><th>Predeterminado</th><th>Clave / índice</th><th>Atributos SQL</th></tr></thead>
+<tbody><tr><td><code>ID</code></td><td><code>bigint unsigned</code></td><td>No</td><td>AUTO_INCREMENT</td><td>PK</td><td>NOT NULL AUTO_INCREMENT</td></tr><tr><td><code>user_ID</code></td><td><code>int unsigned</code></td><td>No</td><td>—</td><td>Índice, FK</td><td>NOT NULL</td></tr><tr><td><code>label</code></td><td><code>varchar(100)</code></td><td>Sí</td><td>NULL</td><td>—</td><td>DEFAULT NULL</td></tr><tr><td><code>is_default</code></td><td><code>tinyint(1)</code></td><td>No</td><td>'0'</td><td>—</td><td>NOT NULL DEFAULT '0'</td></tr><tr><td><code>status</code></td><td><code>bit(1)</code></td><td>No</td><td>b'1'</td><td>—</td><td>NOT NULL DEFAULT b'1'</td></tr><tr><td><code>creation_date</code></td><td><code>datetime</code></td><td>No</td><td>CURRENT_TIMESTAMP</td><td>—</td><td>NOT NULL DEFAULT CURRENT_TIMESTAMP</td></tr><tr><td><code>last_update</code></td><td><code>datetime</code></td><td>Sí</td><td>NULL</td><td>—</td><td>DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP</td></tr></tbody>
+</table></div>
+<details><summary>Relaciones y claves foráneas (1)</summary><ul><li><code>fk_user_address_user</code>: (user_ID) → <code>tb_users</code> (ID) ON DELETE RESTRICT</li></ul></details>
+</section><section class="card table-card" data-n="tb_users" data-table="tb_users" id="tb_users">
+<h3><code>tb_users</code><span>8 columnas</span></h3>
+<div class="wrap table-wrap"><table>
+<thead><tr><th>Columna</th><th>Tipo</th><th>Permite NULL</th><th>Predeterminado</th><th>Clave / índice</th><th>Atributos SQL</th></tr></thead>
+<tbody><tr><td><code>ID</code></td><td><code>int unsigned</code></td><td>No</td><td>AUTO_INCREMENT</td><td>PK</td><td>NOT NULL AUTO_INCREMENT</td></tr><tr><td><code>email</code></td><td><code>varchar(80)</code></td><td>No</td><td>—</td><td>Único</td><td>NOT NULL</td></tr><tr><td><code>nick</code></td><td><code>varchar(100)</code></td><td>No</td><td>—</td><td>Único</td><td>NOT NULL</td></tr><tr><td><code>password</code></td><td><code>varchar(255)</code></td><td>No</td><td>—</td><td>—</td><td>NOT NULL</td></tr><tr><td><code>creation_date</code></td><td><code>datetime</code></td><td>No</td><td>CURRENT_TIMESTAMP</td><td>—</td><td>NOT NULL DEFAULT CURRENT_TIMESTAMP</td></tr><tr><td><code>last_update</code></td><td><code>datetime</code></td><td>Sí</td><td>CURRENT_TIMESTAMP</td><td>—</td><td>DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP</td></tr><tr><td><code>last_login</code></td><td><code>datetime</code></td><td>Sí</td><td>NULL</td><td>—</td><td>DEFAULT NULL</td></tr><tr><td><code>status</code></td><td><code>bit(1)</code></td><td>No</td><td>b'1'</td><td>—</td><td>NOT NULL DEFAULT b'1'</td></tr></tbody>
+</table></div>
+<details><summary>Relaciones y claves foráneas (0)</summary><p class="muted">No se declaran claves foráneas.</p></details>
+</section><section class="card table-card" data-n="tbc_categories" data-table="tbc_categories" id="tbc_categories">
+<h3><code>tbc_categories</code><span>7 columnas</span></h3>
+<div class="wrap table-wrap"><table>
+<thead><tr><th>Columna</th><th>Tipo</th><th>Permite NULL</th><th>Predeterminado</th><th>Clave / índice</th><th>Atributos SQL</th></tr></thead>
+<tbody><tr><td><code>ID</code></td><td><code>int unsigned</code></td><td>No</td><td>AUTO_INCREMENT</td><td>PK</td><td>NOT NULL AUTO_INCREMENT</td></tr><tr><td><code>name</code></td><td><code>varchar(120)</code></td><td>No</td><td>—</td><td>Único</td><td>NOT NULL</td></tr><tr><td><code>description</code></td><td><code>text</code></td><td>Sí</td><td>—</td><td>—</td><td></td></tr><tr><td><code>sup_id_category</code></td><td><code>int unsigned</code></td><td>Sí</td><td>NULL</td><td>Índice, FK</td><td>DEFAULT NULL</td></tr><tr><td><code>status</code></td><td><code>bit(1)</code></td><td>No</td><td>b'1'</td><td>—</td><td>NOT NULL DEFAULT b'1'</td></tr><tr><td><code>creation_date</code></td><td><code>datetime</code></td><td>No</td><td>CURRENT_TIMESTAMP</td><td>—</td><td>NOT NULL DEFAULT CURRENT_TIMESTAMP</td></tr><tr><td><code>last_update</code></td><td><code>datetime</code></td><td>No</td><td>—</td><td>—</td><td>NOT NULL ON UPDATE CURRENT_TIMESTAMP</td></tr></tbody>
+</table></div>
+<details><summary>Relaciones y claves foráneas (1)</summary><ul><li><code>fk_superior_category</code>: (sup_id_category) → <code>tbc_categories</code> (ID) </li></ul></details>
+</section><section class="card table-card" data-n="tbc_payment_methods_types" data-table="tbc_payment_methods_types" id="tbc_payment_methods_types">
+<h3><code>tbc_payment_methods_types</code><span>6 columnas</span></h3>
+<div class="wrap table-wrap"><table>
+<thead><tr><th>Columna</th><th>Tipo</th><th>Permite NULL</th><th>Predeterminado</th><th>Clave / índice</th><th>Atributos SQL</th></tr></thead>
+<tbody><tr><td><code>ID</code></td><td><code>int unsigned</code></td><td>No</td><td>AUTO_INCREMENT</td><td>PK</td><td>NOT NULL AUTO_INCREMENT</td></tr><tr><td><code>code</code></td><td><code>varchar(30)</code></td><td>No</td><td>—</td><td>Único</td><td>NOT NULL</td></tr><tr><td><code>description</code></td><td><code>text</code></td><td>No</td><td>—</td><td>—</td><td>NOT NULL</td></tr><tr><td><code>status</code></td><td><code>bit(1)</code></td><td>No</td><td>b'1'</td><td>—</td><td>NOT NULL DEFAULT b'1'</td></tr><tr><td><code>creation_date</code></td><td><code>datetime</code></td><td>No</td><td>CURRENT_TIMESTAMP</td><td>—</td><td>NOT NULL DEFAULT CURRENT_TIMESTAMP</td></tr><tr><td><code>last_update</code></td><td><code>datetime</code></td><td>Sí</td><td>NULL</td><td>—</td><td>DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP</td></tr></tbody>
+</table></div>
+<details><summary>Relaciones y claves foráneas (0)</summary><p class="muted">No se declaran claves foráneas.</p></details>
+</section><section class="card table-card" data-n="tbd_address_components" data-table="tbd_address_components" id="tbd_address_components">
+<h3><code>tbd_address_components</code><span>8 columnas</span></h3>
+<div class="wrap table-wrap"><table>
+<thead><tr><th>Columna</th><th>Tipo</th><th>Permite NULL</th><th>Predeterminado</th><th>Clave / índice</th><th>Atributos SQL</th></tr></thead>
+<tbody><tr><td><code>ID</code></td><td><code>bigint unsigned</code></td><td>No</td><td>AUTO_INCREMENT</td><td>PK, Único</td><td>NOT NULL AUTO_INCREMENT</td></tr><tr><td><code>address_ID</code></td><td><code>bigint unsigned</code></td><td>No</td><td>—</td><td>Único, Índice, FK</td><td>NOT NULL</td></tr><tr><td><code>value</code></td><td><code>varchar(255)</code></td><td>No</td><td>—</td><td>—</td><td>NOT NULL</td></tr><tr><td><code>component_type</code></td><td><code>varchar(50)</code></td><td>No</td><td>—</td><td>—</td><td>NOT NULL</td></tr><tr><td><code>status</code></td><td><code>bit(1)</code></td><td>No</td><td>b'1'</td><td>—</td><td>NOT NULL DEFAULT b'1'</td></tr><tr><td><code>address_sup_ID</code></td><td><code>bigint unsigned</code></td><td>Sí</td><td>NULL</td><td>Índice, FK</td><td>DEFAULT NULL</td></tr><tr><td><code>creation_date</code></td><td><code>datetime</code></td><td>No</td><td>CURRENT_TIMESTAMP</td><td>—</td><td>NOT NULL DEFAULT CURRENT_TIMESTAMP</td></tr><tr><td><code>last_update</code></td><td><code>datetime</code></td><td>Sí</td><td>NULL</td><td>—</td><td>DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP</td></tr></tbody>
+</table></div>
+<details><summary>Relaciones y claves foráneas (2)</summary><ul><li><code>fk_component_address</code>: (address_ID) → <code>tb_user_addresses</code> (ID) ON DELETE RESTRICT</li><li><code>fk_component_parent</code>: (address_ID, address_sup_ID) → <code>tbd_address_components</code> (address_ID, ID) ON DELETE RESTRICT</li></ul></details>
+</section><section class="card table-card" data-n="tbd_countries" data-table="tbd_countries" id="tbd_countries">
+<h3><code>tbd_countries</code><span>4 columnas</span></h3>
+<div class="wrap table-wrap"><table>
+<thead><tr><th>Columna</th><th>Tipo</th><th>Permite NULL</th><th>Predeterminado</th><th>Clave / índice</th><th>Atributos SQL</th></tr></thead>
+<tbody><tr><td><code>country_code</code></td><td><code>char(2)</code></td><td>No</td><td>—</td><td>PK</td><td>NOT NULL</td></tr><tr><td><code>name</code></td><td><code>varchar(100)</code></td><td>No</td><td>—</td><td>Único</td><td>NOT NULL</td></tr><tr><td><code>phone_code</code></td><td><code>varchar(8)</code></td><td>Sí</td><td>NULL</td><td>—</td><td>DEFAULT NULL</td></tr><tr><td><code>is_active</code></td><td><code>tinyint(1)</code></td><td>No</td><td>'1'</td><td>—</td><td>NOT NULL DEFAULT '1'</td></tr></tbody>
+</table></div>
+<details><summary>Relaciones y claves foráneas (0)</summary><p class="muted">No se declaran claves foráneas.</p></details>
+</section><section class="card table-card" data-n="tbd_courtesy_titles" data-table="tbd_courtesy_titles" id="tbd_courtesy_titles">
+<h3><code>tbd_courtesy_titles</code><span>3 columnas</span></h3>
+<div class="wrap table-wrap"><table>
+<thead><tr><th>Columna</th><th>Tipo</th><th>Permite NULL</th><th>Predeterminado</th><th>Clave / índice</th><th>Atributos SQL</th></tr></thead>
+<tbody><tr><td><code>courtesy_title_ID</code></td><td><code>char(3)</code></td><td>No</td><td>—</td><td>PK</td><td>NOT NULL</td></tr><tr><td><code>name</code></td><td><code>varchar(50)</code></td><td>No</td><td>—</td><td>Único</td><td>NOT NULL</td></tr><tr><td><code>is_active</code></td><td><code>tinyint(1)</code></td><td>No</td><td>'1'</td><td>—</td><td>NOT NULL DEFAULT '1'</td></tr></tbody>
+</table></div>
+<details><summary>Relaciones y claves foráneas (0)</summary><p class="muted">No se declaran claves foráneas.</p></details>
+</section><section class="card table-card" data-n="tbd_genders" data-table="tbd_genders" id="tbd_genders">
+<h3><code>tbd_genders</code><span>3 columnas</span></h3>
+<div class="wrap table-wrap"><table>
+<thead><tr><th>Columna</th><th>Tipo</th><th>Permite NULL</th><th>Predeterminado</th><th>Clave / índice</th><th>Atributos SQL</th></tr></thead>
+<tbody><tr><td><code>gender_ID</code></td><td><code>tinyint unsigned</code></td><td>No</td><td>AUTO_INCREMENT</td><td>PK</td><td>NOT NULL AUTO_INCREMENT</td></tr><tr><td><code>name</code></td><td><code>varchar(50)</code></td><td>No</td><td>—</td><td>Único</td><td>NOT NULL</td></tr><tr><td><code>is_active</code></td><td><code>tinyint(1)</code></td><td>No</td><td>'1'</td><td>—</td><td>NOT NULL DEFAULT '1'</td></tr></tbody>
+</table></div>
+<details><summary>Relaciones y claves foráneas (0)</summary><p class="muted">No se declaran claves foráneas.</p></details>
+</section><section class="card table-card" data-n="tbd_products_categories" data-table="tbd_products_categories" id="tbd_products_categories">
+<h3><code>tbd_products_categories</code><span>5 columnas</span></h3>
+<div class="wrap table-wrap"><table>
+<thead><tr><th>Columna</th><th>Tipo</th><th>Permite NULL</th><th>Predeterminado</th><th>Clave / índice</th><th>Atributos SQL</th></tr></thead>
+<tbody><tr><td><code>category_ID</code></td><td><code>int unsigned</code></td><td>No</td><td>—</td><td>PK, FK</td><td>NOT NULL</td></tr><tr><td><code>product_ID</code></td><td><code>int unsigned</code></td><td>No</td><td>—</td><td>PK, Índice, FK</td><td>NOT NULL</td></tr><tr><td><code>status</code></td><td><code>bit(1)</code></td><td>No</td><td>b'1'</td><td>—</td><td>NOT NULL DEFAULT b'1'</td></tr><tr><td><code>creation_date</code></td><td><code>datetime</code></td><td>No</td><td>CURRENT_TIMESTAMP</td><td>—</td><td>NOT NULL DEFAULT CURRENT_TIMESTAMP</td></tr><tr><td><code>last_update</code></td><td><code>datetime</code></td><td>No</td><td>—</td><td>—</td><td>NOT NULL ON UPDATE CURRENT_TIMESTAMP</td></tr></tbody>
+</table></div>
+<details><summary>Relaciones y claves foráneas (2)</summary><ul><li><code>fk_category</code>: (category_ID) → <code>tbc_categories</code> (ID) </li><li><code>fk_product</code>: (product_ID) → <code>tb_products</code> (ID) </li></ul></details>
+</section><section class="card table-card" data-n="tbd_products_users_providers" data-table="tbd_products_users_providers" id="tbd_products_users_providers">
+<h3><code>tbd_products_users_providers</code><span>7 columnas</span></h3>
+<div class="wrap table-wrap"><table>
+<thead><tr><th>Columna</th><th>Tipo</th><th>Permite NULL</th><th>Predeterminado</th><th>Clave / índice</th><th>Atributos SQL</th></tr></thead>
+<tbody><tr><td><code>user_ID</code></td><td><code>int unsigned</code></td><td>No</td><td>—</td><td>PK, FK</td><td>NOT NULL</td></tr><tr><td><code>product_ID</code></td><td><code>int unsigned</code></td><td>No</td><td>—</td><td>PK, Índice, FK</td><td>NOT NULL</td></tr><tr><td><code>type_ownership</code></td><td><code>varchar(50)</code></td><td>Sí</td><td>NULL</td><td>—</td><td>DEFAULT NULL</td></tr><tr><td><code>status</code></td><td><code>bit(1)</code></td><td>No</td><td>b'1'</td><td>—</td><td>NOT NULL DEFAULT b'1'</td></tr><tr><td><code>avalaible_date</code></td><td><code>datetime</code></td><td>Sí</td><td>NULL</td><td>—</td><td>DEFAULT NULL</td></tr><tr><td><code>creation_date</code></td><td><code>datetime</code></td><td>No</td><td>CURRENT_TIMESTAMP</td><td>—</td><td>NOT NULL DEFAULT CURRENT_TIMESTAMP</td></tr><tr><td><code>last_update</code></td><td><code>datetime</code></td><td>No</td><td>—</td><td>—</td><td>NOT NULL ON UPDATE CURRENT_TIMESTAMP</td></tr></tbody>
+</table></div>
+<details><summary>Relaciones y claves foráneas (2)</summary><ul><li><code>fk_product_provider</code>: (product_ID) → <code>tb_products</code> (ID) </li><li><code>fk_user_provider</code>: (user_ID) → <code>tb_users</code> (ID) </li></ul></details>
+</section><section class="card table-card" data-n="tbd_user_payment_methods" data-table="tbd_user_payment_methods" id="tbd_user_payment_methods">
+<h3><code>tbd_user_payment_methods</code><span>11 columnas</span></h3>
+<div class="wrap table-wrap"><table>
+<thead><tr><th>Columna</th><th>Tipo</th><th>Permite NULL</th><th>Predeterminado</th><th>Clave / índice</th><th>Atributos SQL</th></tr></thead>
+<tbody><tr><td><code>ID</code></td><td><code>bigint unsigned</code></td><td>No</td><td>AUTO_INCREMENT</td><td>PK</td><td>NOT NULL AUTO_INCREMENT</td></tr><tr><td><code>user_ID</code></td><td><code>int unsigned</code></td><td>No</td><td>—</td><td>Índice, FK</td><td>NOT NULL</td></tr><tr><td><code>payment_method_type_ID</code></td><td><code>int unsigned</code></td><td>No</td><td>—</td><td>Índice, FK</td><td>NOT NULL</td></tr><tr><td><code>provider</code></td><td><code>varchar(60)</code></td><td>No</td><td>—</td><td>Único</td><td>NOT NULL</td></tr><tr><td><code>provider_method_ref</code></td><td><code>varchar(255)</code></td><td>No</td><td>—</td><td>Único</td><td>NOT NULL</td></tr><tr><td><code>label</code></td><td><code>varchar(100)</code></td><td>Sí</td><td>NULL</td><td>—</td><td>DEFAULT NULL</td></tr><tr><td><code>last_four</code></td><td><code>char(4)</code></td><td>Sí</td><td>NULL</td><td>—</td><td>DEFAULT NULL</td></tr><tr><td><code>is_default</code></td><td><code>tinyint(1)</code></td><td>No</td><td>'0'</td><td>—</td><td>NOT NULL DEFAULT '0'</td></tr><tr><td><code>status</code></td><td><code>bit(1)</code></td><td>No</td><td>b'1'</td><td>—</td><td>NOT NULL DEFAULT b'1'</td></tr><tr><td><code>creation_date</code></td><td><code>datetime</code></td><td>No</td><td>CURRENT_TIMESTAMP</td><td>—</td><td>NOT NULL DEFAULT CURRENT_TIMESTAMP</td></tr><tr><td><code>last_update</code></td><td><code>datetime</code></td><td>Sí</td><td>NULL</td><td>—</td><td>DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP</td></tr></tbody>
+</table></div>
+<details><summary>Relaciones y claves foráneas (2)</summary><ul><li><code>tbd_user_payment_methods_ibfk_1</code>: (user_ID) → <code>tb_users</code> (ID) </li><li><code>tbd_user_payment_methods_ibfk_2</code>: (payment_method_type_ID) → <code>tbc_payment_methods_types</code> (ID) </li></ul></details>
+</section><section class="card table-card" data-n="tbd_users_wishlist_products" data-table="tbd_users_wishlist_products" id="tbd_users_wishlist_products">
+<h3><code>tbd_users_wishlist_products</code><span>5 columnas</span></h3>
+<div class="wrap table-wrap"><table>
+<thead><tr><th>Columna</th><th>Tipo</th><th>Permite NULL</th><th>Predeterminado</th><th>Clave / índice</th><th>Atributos SQL</th></tr></thead>
+<tbody><tr><td><code>user_ID</code></td><td><code>int unsigned</code></td><td>No</td><td>—</td><td>PK, FK</td><td>NOT NULL</td></tr><tr><td><code>product_ID</code></td><td><code>int unsigned</code></td><td>No</td><td>—</td><td>PK, Índice, FK</td><td>NOT NULL</td></tr><tr><td><code>status</code></td><td><code>bit(1)</code></td><td>No</td><td>b'1'</td><td>—</td><td>NOT NULL DEFAULT b'1'</td></tr><tr><td><code>creation_date</code></td><td><code>datetime</code></td><td>No</td><td>CURRENT_TIMESTAMP</td><td>—</td><td>NOT NULL DEFAULT CURRENT_TIMESTAMP</td></tr><tr><td><code>last_update</code></td><td><code>datetime</code></td><td>No</td><td>—</td><td>—</td><td>NOT NULL ON UPDATE CURRENT_TIMESTAMP</td></tr></tbody>
+</table></div>
+<details><summary>Relaciones y claves foráneas (2)</summary><ul><li><code>fk_products3</code>: (product_ID) → <code>tb_products</code> (ID) </li><li><code>fk_user2</code>: (user_ID) → <code>tb_users</code> (ID) </li></ul></details>
+</section></div><h2 class="sec" id="vistas">Vistas</h2><div id="views"><section class="card table-card view-card" data-n="vw_total_products_by_category" data-view="vw_total_products_by_category" id="vw_total_products_by_category">
+<h3><code>vw_total_products_by_category</code><span>Vista</span></h3>
+<details><summary>Ver definición SQL</summary><pre>with recursive `category_tree` as (select `c`.`ID` AS `ID`,`c`.`name` AS `name`,`c`.`sup_id_category` AS `sup_id_category`,`c`.`status` AS `status`,cast(`c`.`name` as char(1000) charset utf8mb4) AS `category_path`,1 AS `category_level` from `tbc_categories` `c` where (`c`.`sup_id_category` is null) union all select `c`.`ID` AS `ID`,`c`.`name` AS `name`,`c`.`sup_id_category` AS `sup_id_category`,`c`.`status` AS `status`,concat(`ct`.`category_path`,' → ',`c`.`name`) AS `category_path`,(`ct`.`category_level` + 1) AS `ct.category_level + 1` from (`tbc_categories` `c` join `category_tree` `ct` on((`c`.`sup_id_category` = `ct`.`ID`)))), `category_totals` as (select `ct`.`ID` AS `category_ID`,`ct`.`category_path` AS `category_path`,`ct`.`category_level` AS `category_level`,count(distinct `pc`.`product_ID`) AS `total_products`,count(distinct (case when (`p`.`status` = 0x01) then `p`.`ID` end)) AS `total_active_products`,count(distinct (case when (`p`.`status` = 0x00) then `p`.`ID` end)) AS `total_inactive_products` from ((`category_tree` `ct` left join `tbd_products_categories` `pc` on(((`pc`.`category_ID` = `ct`.`ID`) and (`pc`.`status` = 0x01)))) left join `tb_products` `p` on((`p`.`ID` = `pc`.`product_ID`))) group by `ct`.`ID`,`ct`.`category_path`,`ct`.`category_level`), `uncategorized` as (select count(0) AS `total_uncategorized_products`,sum((case when (`p`.`status` = 0x01) then 1 else 0 end)) AS `total_active_products`,sum((case when (`p`.`status` = 0x00) then 1 else 0 end)) AS `total_inactive_products` from `tb_products` `p` where exists(select 1 from `tbd_products_categories` `pc` where ((`pc`.`product_ID` = `p`.`ID`) and (`pc`.`status` = 0x01))) is false) select `category_totals`.`category_ID` AS `category_ID`,`category_totals`.`category_path` AS `category_path`,`category_totals`.`category_level` AS `category_level`,`category_totals`.`total_products` AS `total_products`,`category_totals`.`total_active_products` AS `total_active_products`,`category_totals`.`total_inactive_products` AS `total_inactive_products`,0 AS `total_uncategorized_products` from `category_totals` union all select NULL AS `category_ID`,'Sin categoría' AS `category_path`,0 AS `category_level`,`uncategorized`.`total_uncategorized_products` AS `total_products`,`uncategorized`.`total_active_products` AS `total_active_products`,`uncategorized`.`total_inactive_products` AS `total_inactive_products`,`uncategorized`.`total_uncategorized_products` AS `total_uncategorized_products` from `uncategorized`</pre></details>
+</section><section class="card table-card view-card" data-n="vw_trazabilidad_categorias" data-view="vw_trazabilidad_categorias" id="vw_trazabilidad_categorias">
+<h3><code>vw_trazabilidad_categorias</code><span>Vista</span></h3>
+<details><summary>Ver definición SQL</summary><pre>select `l`.`ID` AS `log_id`,cast(substring_index(substring_index(`l`.`operation_description`,'ID=',-(1)),',',1) as unsigned) AS `category_id`,`l`.`table_operation` AS `operation`,`l`.`db_user` AS `db_user`,substring_index(`l`.`db_user`,'@',1) AS `username`,coalesce((select group_concat(distinct `re`.`FROM_USER` order by `re`.`FROM_USER` ASC separator ', ') from `mysql`.`role_edges` `re` where (`re`.`TO_USER` = substring_index(`l`.`db_user`,'@',1))),'Sin rol asignado') AS `roles`,`l`.`operation_description` AS `operation_description`,`l`.`operation_date` AS `operation_date`,`l`.`operation_status` AS `operation_status` from `tb_logs` `l` where (`l`.`table_name` = 'tbc_categories')</pre></details>
+</section><section class="card table-card view-card" data-n="vw_trazabilidad_categorizacion_productos" data-view="vw_trazabilidad_categorizacion_productos" id="vw_trazabilidad_categorizacion_productos">
+<h3><code>vw_trazabilidad_categorizacion_productos</code><span>Vista</span></h3>
+<details><summary>Ver definición SQL</summary><pre>select `l`.`ID` AS `log_id`,cast(substring_index(substring_index(`l`.`operation_description`,'ID=',-(1)),',',1) as unsigned) AS `category_id`,`l`.`table_operation` AS `operation`,`l`.`db_user` AS `db_user`,substring_index(`l`.`db_user`,'@',1) AS `username`,coalesce((select group_concat(distinct `re`.`FROM_USER` order by `re`.`FROM_USER` ASC separator ', ') from `mysql`.`role_edges` `re` where (`re`.`TO_USER` = substring_index(`l`.`db_user`,'@',1))),'Sin rol asignado') AS `roles`,`l`.`operation_description` AS `operation_description`,`l`.`operation_date` AS `operation_date`,`l`.`operation_status` AS `operation_status` from `tb_logs` `l` where (`l`.`table_name` = 'tbd_products_categories')</pre></details>
+</section><section class="card table-card view-card" data-n="vw_trazabilidad_producto_proveedor" data-view="vw_trazabilidad_producto_proveedor" id="vw_trazabilidad_producto_proveedor">
+<h3><code>vw_trazabilidad_producto_proveedor</code><span>Vista</span></h3>
+<details><summary>Ver definición SQL</summary><pre>select `l`.`ID` AS `log_id`,cast(substring_index(substring_index(`l`.`operation_description`,'ID=',-(1)),',',1) as unsigned) AS `category_id`,`l`.`table_operation` AS `operation`,`l`.`db_user` AS `db_user`,substring_index(`l`.`db_user`,'@',1) AS `username`,coalesce((select group_concat(distinct `re`.`FROM_USER` order by `re`.`FROM_USER` ASC separator ', ') from `mysql`.`role_edges` `re` where (`re`.`TO_USER` = substring_index(`l`.`db_user`,'@',1))),'Sin rol asignado') AS `roles`,`l`.`operation_description` AS `operation_description`,`l`.`operation_date` AS `operation_date`,`l`.`operation_status` AS `operation_status` from `tb_logs` `l` where (`l`.`table_name` = 'tbd_products_users_providers')</pre></details>
+</section><section class="card table-card view-card" data-n="vw_trazabilidad_productos" data-view="vw_trazabilidad_productos" id="vw_trazabilidad_productos">
+<h3><code>vw_trazabilidad_productos</code><span>Vista</span></h3>
+<details><summary>Ver definición SQL</summary><pre>select `p`.`ID` AS `id`,`p`.`name` AS `name`,`p`.`description` AS `description`,`b`.`db_user` AS `inserted_by`,coalesce(group_concat(distinct `re`.`FROM_USER` order by `re`.`FROM_USER` ASC separator ', '),'Sin rol') AS `roles`,`b`.`operation_description` AS `operation_description`,`b`.`operation_date` AS `operation_date` from ((`tb_products` `p` join `tb_logs` `b` on((`b`.`operation_description` like concat('%ID=',`p`.`ID`,',%')))) left join `mysql`.`role_edges` `re` on((`re`.`TO_USER` = substring_index(`b`.`db_user`,'@',1)))) where ((`b`.`table_operation` = 'Create') and (`b`.`table_name` = 'tb_products')) group by `p`.`ID`,`p`.`name`,`p`.`description`,`b`.`db_user`,`b`.`operation_description`,`b`.`operation_date`</pre></details>
+</section><section class="card table-card view-card" data-n="vw_trazabilidad_usuarios" data-view="vw_trazabilidad_usuarios" id="vw_trazabilidad_usuarios">
+<h3><code>vw_trazabilidad_usuarios</code><span>Vista</span></h3>
+<details><summary>Ver definición SQL</summary><pre>select `u`.`nick` AS `nick`,`u`.`email` AS `email`,`b`.`db_user` AS `inserted_by`,group_concat(distinct `re`.`FROM_USER` order by `re`.`FROM_USER` ASC separator ', ') AS `roles`,`b`.`operation_description` AS `operation_description`,`b`.`operation_date` AS `operation_date` from ((`tb_users` `u` join `tb_logs` `b` on(((`b`.`operation_description` like concat('%',`u`.`nick`,'%')) and (`b`.`operation_description` like concat('%',`u`.`email`,'%'))))) left join `mysql`.`role_edges` `re` on((`re`.`TO_USER` = substring_index(`b`.`db_user`,'@',1)))) where ((`b`.`table_operation` = 'Create') and (`b`.`table_name` = 'tb_users')) group by `u`.`nick`,`u`.`email`,`b`.`db_user`,`b`.`operation_description`,`b`.`operation_date` order by `b`.`operation_date`</pre></details>
+</section></div><p id="empty">Sin resultados para esa búsqueda.</p><p class="meta" style="margin-top:40px">Diccionario generado a partir del respaldo SQL. No contiene datos de registros.</p></main><script>
+const q=document.getElementById("q"), kind=document.getElementById("kind");
+function filterItems(){
+ const term=q.value.trim().toLowerCase(), mode=kind.value; let shown=0;
+ document.querySelectorAll("#tables .table-card").forEach(el=>{const ok=mode!=="views"&&el.innerText.toLowerCase().includes(term);el.classList.toggle("hide",!ok);if(ok)shown++;});
+ document.querySelectorAll("#views .table-card").forEach(el=>{const ok=mode!=="tables"&&el.innerText.toLowerCase().includes(term);el.classList.toggle("hide",!ok);if(ok)shown++;});
+ document.querySelectorAll("#nav a[data-n]").forEach(a=>{const id=a.getAttribute("href").slice(1),el=document.getElementById(id);a.classList.toggle("hide",!!el&&el.classList.contains("hide"));});
+ document.getElementById("empty").style.display=shown?"none":"block";
+}
+q.addEventListener("input",filterItems);kind.addEventListener("change",filterItems);
+</script></body>
+</html>
