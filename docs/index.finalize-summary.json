@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "ok": true,
+  "command": "finalize",
+  "status": "pass",
+  "type": "explainer",
+  "quality": "showcase",
+  "specification": {
+    "path": "C:\\Practicas_BDN_240161\\.archify\\explainer-diccionario-datos-20261027-120000\\candidate.archify.md",
+    "sha256": "04deca392db8cbf38e6f0ecdf86e378e6e1700f810c3342511e136bf4d75b3e8",
+    "bytes": 50485
+  },
+  "artifact": {
+    "path": "C:\\Practicas_BDN_240161\\docs\\index.html",
+    "sha256": "315e85a4a9fb74721a9d7971590933eb297fb102b657d6338cbec3b697cf9d6d",
+    "bytes": 552243
+  },
+  "gates": {
+    "validate": "pass",
+    "deliver": "pass",
+    "check": "pass",
+    "browser-check": "not-run"
+  },
+  "diagnostics": [
+    {
+      "code": "explainer/writing-paragraph-length",
+      "severity": "warning",
+      "message": "This paragraph has 5 sentences and 47 reading units; long paragraphs are what the page should replace.",
+      "subject": {
+        "input": "C:\\Practicas_BDN_240161\\.archify\\explainer-diccionario-datos-20261027-120000\\candidate.archify.md",
+        "line": 14,
+        "component": "prose",
+        "panelId": "criterios"
+      },
+      "evidence": {
+        "reason": "This paragraph has 5 sentences and 47 reading units; long paragraphs are what the page should replace.",
+        "example": "把并列要点写成列表，把先后动作写成 @steps，把方案差异写成对比表。 / Turn parallel points into a list, ordered actions into @steps and option differences into a comparison.",
+        "rule": "paragraph-length",
+        "units": 47,
+        "limit": 120
+      },
+      "supportedFixes": [
+        "Split the paragraph into a list, steps or a comparison; keep at most two or three short sentences of prose."
+      ]
+    }
+  ],
+  "diagnosticSummary": {
+    "total": 1,
+    "shown": 1,
+    "truncated": false
+  },
+  "evidence": {
+    "receipt": "C:\\Practicas_BDN_240161\\docs\\index.finalize.json",
+    "summaryReceipt": "C:\\Practicas_BDN_240161\\docs\\index.finalize-summary.json"
+  },
+  "visualReview": "not-requested",
+  "durationMs": 4640,
+  "browserCheck": {
+    "requested": false,
+    "ran": false
+  }
+}

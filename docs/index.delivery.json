@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "056e5f48-a977-4a80-b456-16cf7e691305",
+  "status": "current",
+  "command": "deliver",
+  "type": "explainer",
+  "input": "C:\\Practicas_BDN_240161\\.archify\\explainer-diccionario-datos-20261027-120000\\candidate.archify.md",
+  "output": "C:\\Practicas_BDN_240161\\docs\\index.html",
+  "specification": {
+    "sha256": "04deca392db8cbf38e6f0ecdf86e378e6e1700f810c3342511e136bf4d75b3e8",
+    "bytes": 50485
+  },
+  "artifact": {
+    "sha256": "315e85a4a9fb74721a9d7971590933eb297fb102b657d6338cbec3b697cf9d6d",
+    "bytes": 552243
+  },
+  "explainer": {
+    "preparedSha256": "501f1088a89fc09a12cfa1f1571f7ceab42f1aa96c7e93bc0dd3c86d7b3b5ade",
+    "dependencies": []
+  }
+}
