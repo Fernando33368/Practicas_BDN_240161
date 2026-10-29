@@ -81,6 +81,8 @@ GRANT 'seller' TO 'carlos.cabrera'@'%';
 GRANT 'seller' TO 'carlos.cabrera'@'%';
 
 GRANT 'user_not_registered' TO ''@'%';
+GRANT 'user_not_registered', 'common_user', 'buyer' TO 'AppWeb'@'%';
+GRANT 'user_not_registered', 'common_user', 'buyer' TO 'AppMobile'@'%';
 
 /* ============================================================
    ESTABLECER ROLES PREDETERMINADOS
