@@ -12,3 +12,5 @@ Periodo: Septiembre - Diciembre 2026
 |---|---|---|---|---|
 |1.|Metodología de Evaluación de la Materia| Transcribir en libreta y comprender la metodología y fechas de evaluación de la asignatura| 5| 🟢 Conlcuida |
 |2.|Conexiones Remotas para Bases de Datos SQL| Crear y administrar usuarios y privilegios para conexiones desde internet o redes locales|60 |🟢 Conlcuida|
+
+start .archify/erd-respaldo14102026-20261014-182238/respaldo14102026.html

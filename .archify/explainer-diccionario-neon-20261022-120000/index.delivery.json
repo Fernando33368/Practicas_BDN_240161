@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "7756abcf-0bca-4c4c-aebf-f9d42764f7ee",
+  "status": "current",
+  "command": "deliver",
+  "type": "explainer",
+  "input": "C:\\Practicas_BDN_240161\\.archify\\explainer-diccionario-neon-20261022-120000\\candidate.archify.md",
+  "output": "C:\\Practicas_BDN_240161\\docs\\index.html",
+  "specification": {
+    "sha256": "15ced938184461cbcc438cee7e67c807170753fc341260d382638e0c71e2cf89",
+    "bytes": 27544
+  },
+  "artifact": {
+    "sha256": "eca213a4a7ef6c5f267ce7e96bc533030825b0d06d7a6bc8e240a0864b334e3c",
+    "bytes": 407508
+  },
+  "explainer": {
+    "preparedSha256": "291704b9e487e7ed8984c9dbcf6a8c4695e2a9f9aae4afdaea680a72e4cce608",
+    "dependencies": []
+  }
+}

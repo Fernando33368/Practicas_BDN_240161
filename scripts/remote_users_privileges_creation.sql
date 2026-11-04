@@ -2,6 +2,7 @@
    CREACIÓN DE USUARIOS REMOTOS
    ============================================================ */
 
+<<<<<<< HEAD
 CREATE USER IF NOT EXISTS 'fernando.miguel'@'%'
 IDENTIFIED BY '240161';
 
@@ -10,6 +11,13 @@ IDENTIFIED BY '240162';
 
 CREATE USER IF NOT EXISTS 'carlos.cabrera'@'%'
 IDENTIFIED BY '240201';
+=======
+CREATE USER IF NOT EXISTS 'fernando.miguel'@'%' IDENTIFIED BY '240161';
+CREATE USER IF NOT EXISTS 'nazul.gutierrez'@'%' IDENTIFIED BY '240162';
+CREATE USER IF NOT EXISTS 'carlos.cabrera'@'%' IDENTIFIED BY '240201';
+CREATE USER IF NOT EXISTS 'app.web'@'%' IDENTIFIED BY 'Web123';
+CREATE USER IF NOT EXISTS 'app.movil'@'%' IDENTIFIED BY 'Mobile890';
+>>>>>>> Practica03
 
 
 /* ============================================================
@@ -22,10 +30,14 @@ ON *.*
 TO 'fernando.miguel'@'%';
 
 
+<<<<<<< HEAD
 /* Privilegios CRUD sobre db_test para Carlos */
 GRANT SELECT, INSERT, UPDATE, DELETE
 ON db_test.*
 TO 'carlos.cabrera'@'%';
+=======
+GRANT SELECT, INSERT, UPDATE, DELETE ON db_test_240161.* TO 'carlos.cabrera'@'192.168.1.64';
+>>>>>>> Practica03
 
 
 /* ============================================================
@@ -46,6 +58,7 @@ CREATE ROLE IF NOT EXISTS 'user_not_registered'@'%';
    ============================================================ */
 
 /* SUPERADMIN */
+<<<<<<< HEAD
 GRANT ALL PRIVILEGES
 ON *.*
 TO 'superadmin'@'%';
@@ -72,11 +85,34 @@ GRANT SELECT, INSERT, UPDATE
 ON db_test.tb_products
 TO 'seller'@'%';
 
+=======
+GRANT ALL PRIVILEGES ON *.* TO 'superadmin';    
+
+/* ADMIN */
+GRANT ALL PRIVILEGES ON db_test_240161.* TO 'admin';
+
+
+/* SUPPORT */
+GRANT SELECT, INSERT, UPDATE ON db_test_240161.tb_users TO 'support';
+GRANT SELECT, INSERT, UPDATE ON db_test_240161.tb_products TO 'support';
+GRANT EXECUTE ON PROCEDURE db_test_240161.sp_soft_delete_user TO 'support'@'%';
+
+
+/* SELLER */
+GRANT SELECT, INSERT, UPDATE ON db_test_240161.tb_products TO 'seller';
+
+/*Buyer*/
+GRANT SELECT, INSERT, UPDATE ON db_test_240161.tbcarts TO 'buyer';
+GRANT SELECT, INSERT, UPDATE ON db_test_240161.tbd_carts_items TO 'buyer';
+GRANT SELECT, INSERT ON db_test_240161.tb_buyer_orders TO 'buyer';
+GRANT SELECT, INSERT, UPDATE ON db_test_240161.tbd_users_wishlist_products TO 'buyer';
+>>>>>>> Practica03
 
 /* ============================================================
    ASIGNACIÓN DE ROLES A LOS USUARIOS
    ============================================================ */
 
+<<<<<<< HEAD
 /* Fernando = SUPERADMIN */
 GRANT 'superadmin'@'%'
 TO 'fernando.miguel'@'%';
@@ -89,11 +125,27 @@ TO 'carlos.cabrera'@'%';
 GRANT 'seller'@'%'
 TO 'carlos.cabrera'@'%';
 
+=======
+-- Este deben ser ustedes
+GRANT 'superadmin' TO 'fernando.miguel'@'%';
+-- Este debe ser el Prof. Marco
+GRANT 'admin' TO 'marco.ramirez'@'%';
+-- IZQUIERDA
+GRANT 'support' TO 'carlos.cabrera'@'%';
+-- DERECHA
+GRANT 'seller' TO 'carlos.cabrera'@'%';
+GRANT 'seller' TO 'carlos.cabrera'@'%';
+
+GRANT 'user_not_registered' TO ''@'%';
+GRANT 'user_not_registered', 'common_user', 'buyer' TO 'AppWeb'@'%';
+GRANT 'user_not_registered', 'common_user', 'buyer' TO 'AppMobile'@'%';
+>>>>>>> Practica03
 
 /* ============================================================
    ESTABLECER ROLES PREDETERMINADOS
    ============================================================ */
 
+<<<<<<< HEAD
 SET DEFAULT ROLE 'superadmin'@'%'
 TO 'fernando.miguel'@'%';
 
@@ -101,6 +153,19 @@ SET DEFAULT ROLE
     'support'@'%',
     'seller'@'%'
 TO 'carlos.cabrera'@'%';
+=======
+/*
+Esto permite que el rol se active automáticamente cuando
+el usuario inicia sesión.
+*/
+
+SET DEFAULT ROLE 'admin' TO 'fernando.miguel'@'%';
+
+SET DEFAULT ROLE 'support' TO 'carlos.cabrera'@'%';
+
+SET DEFAULT ROLE 'seller' TO 'carlos.cabrera'@'%';
+SET DEFAULT ROLE 'seller' TO 'carlos.cabrera'@'%';
+>>>>>>> Practica03
 
 
 /* ============================================================
