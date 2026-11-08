@@ -1,0 +1,1274 @@
+{
+  "source": "C:/Practicas_BDN_240161/backups/respaldo_db_test_240161.sql",
+  "bytes": 4503834,
+  "characters": 4493464,
+  "lines": 3647,
+  "tables": [
+    {
+      "name": "tb_buyer_orders",
+      "columns": [
+        {
+          "name": "ID",
+          "raw": "int unsigned NOT NULL AUTO_INCREMENT"
+        },
+        {
+          "name": "seller_ID",
+          "raw": "int unsigned NOT NULL"
+        },
+        {
+          "name": "subtotal",
+          "raw": "decimal(12,2) NOT NULL DEFAULT '0.00'"
+        },
+        {
+          "name": "shipping_cost",
+          "raw": "decimal(12,2) NOT NULL DEFAULT '0.00'"
+        },
+        {
+          "name": "fulfillment_status",
+          "raw": "enum('Pending','Accepted','Preparing','Sent','Delivered','Canceled','Returned') NOT NULL DEFAULT 'Pending'"
+        },
+        {
+          "name": "status",
+          "raw": "bit(1) NOT NULL DEFAULT b'1'"
+        },
+        {
+          "name": "creation_date",
+          "raw": "datetime NOT NULL DEFAULT CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "last_update",
+          "raw": "datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP"
+        }
+      ],
+      "constraints": [
+        "PRIMARY KEY (`ID`)",
+        "KEY `tb_buyer_orders_ibfk_1_idx` (`seller_ID`)",
+        "CONSTRAINT `tb_buyer_orders_ibfk_1` FOREIGN KEY (`seller_ID`) REFERENCES `tb_users` (`ID`)"
+      ],
+      "engine": "InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci",
+      "insertStatements": [],
+      "rowCount": 0,
+      "parseFailures": []
+    },
+    {
+      "name": "tb_cancellations",
+      "columns": [
+        {
+          "name": "ID",
+          "raw": "int unsigned NOT NULL AUTO_INCREMENT"
+        },
+        {
+          "name": "payment_ID",
+          "raw": "int unsigned NOT NULL"
+        },
+        {
+          "name": "requested_by_user_ID",
+          "raw": "int unsigned NOT NULL"
+        },
+        {
+          "name": "reason",
+          "raw": "text NOT NULL"
+        },
+        {
+          "name": "cancellation_status",
+          "raw": "enum('Pending','Approved','Rejected','Completed') NOT NULL DEFAULT 'Pending'"
+        },
+        {
+          "name": "status",
+          "raw": "bit(1) NOT NULL DEFAULT b'1'"
+        },
+        {
+          "name": "creation_date",
+          "raw": "datetime NOT NULL DEFAULT CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "last_update",
+          "raw": "datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+        }
+      ],
+      "constraints": [
+        "PRIMARY KEY (`ID`)",
+        "KEY `idx_cancellations_payment` (`payment_ID`)",
+        "KEY `idx_cancellations_user` (`requested_by_user_ID`)",
+        "CONSTRAINT `fk_cancellations_payment` FOREIGN KEY (`payment_ID`) REFERENCES `tbd_payments` (`payment_ID`)",
+        "CONSTRAINT `fk_cancellations_user` FOREIGN KEY (`requested_by_user_ID`) REFERENCES `tb_users` (`ID`)"
+      ],
+      "engine": "InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci",
+      "insertStatements": [],
+      "rowCount": 0,
+      "parseFailures": []
+    },
+    {
+      "name": "tb_carts",
+      "columns": [
+        {
+          "name": "ID",
+          "raw": "int unsigned NOT NULL AUTO_INCREMENT"
+        },
+        {
+          "name": "user_ID",
+          "raw": "int unsigned NOT NULL"
+        },
+        {
+          "name": "status",
+          "raw": "bit(1) DEFAULT b'1'"
+        },
+        {
+          "name": "creation_date",
+          "raw": "datetime NOT NULL DEFAULT CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "last_update",
+          "raw": "datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP"
+        }
+      ],
+      "constraints": [
+        "PRIMARY KEY (`ID`)",
+        "UNIQUE KEY `uk_cart_user` (`user_ID`)",
+        "CONSTRAINT `tb_carts_ibfk_1` FOREIGN KEY (`user_ID`) REFERENCES `tb_users` (`ID`)"
+      ],
+      "engine": "InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci",
+      "insertStatements": [],
+      "rowCount": 0,
+      "parseFailures": []
+    },
+    {
+      "name": "tb_logs",
+      "columns": [
+        {
+          "name": "ID",
+          "raw": "int unsigned NOT NULL AUTO_INCREMENT"
+        },
+        {
+          "name": "table_name",
+          "raw": "varchar(100) NOT NULL"
+        },
+        {
+          "name": "table_operation",
+          "raw": "enum('Create','Read','Update','Delete') NOT NULL"
+        },
+        {
+          "name": "db_user",
+          "raw": "varchar(80) NOT NULL"
+        },
+        {
+          "name": "operation_description",
+          "raw": "text NOT NULL"
+        },
+        {
+          "name": "operation_date",
+          "raw": "datetime NOT NULL DEFAULT CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "operation_status",
+          "raw": "bit(1) DEFAULT b'1'"
+        }
+      ],
+      "constraints": [
+        "PRIMARY KEY (`ID`)"
+      ],
+      "engine": "InnoDB AUTO_INCREMENT=7511 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci",
+      "insertStatements": [
+        6144,
+        1366
+      ],
+      "rowCount": 7510,
+      "parseFailures": []
+    },
+    {
+      "name": "tb_order_cancellations",
+      "columns": [
+        {
+          "name": "ID",
+          "raw": "int unsigned NOT NULL AUTO_INCREMENT"
+        },
+        {
+          "name": "payment_ID",
+          "raw": "int unsigned NOT NULL"
+        },
+        {
+          "name": "requested_by_user_ID",
+          "raw": "int unsigned NOT NULL"
+        },
+        {
+          "name": "reason",
+          "raw": "text NOT NULL"
+        },
+        {
+          "name": "cancellation_status",
+          "raw": "enum('Pending','Approved','Rejected','Completed') NOT NULL DEFAULT 'Pending'"
+        },
+        {
+          "name": "status",
+          "raw": "bit(1) NOT NULL DEFAULT b'1'"
+        },
+        {
+          "name": "creation_date",
+          "raw": "datetime NOT NULL DEFAULT CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "last_update",
+          "raw": "datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP"
+        }
+      ],
+      "constraints": [
+        "PRIMARY KEY (`ID`)",
+        "KEY `fk_order_cancellations_payment` (`payment_ID`)",
+        "KEY `fk_order_cancellations_user` (`requested_by_user_ID`)",
+        "CONSTRAINT `fk_order_cancellations_payment` FOREIGN KEY (`payment_ID`) REFERENCES `tb_payments` (`ID`)",
+        "CONSTRAINT `fk_order_cancellations_user` FOREIGN KEY (`requested_by_user_ID`) REFERENCES `tb_users` (`ID`)"
+      ],
+      "engine": "InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci",
+      "insertStatements": [],
+      "rowCount": 0,
+      "parseFailures": []
+    },
+    {
+      "name": "tb_orders",
+      "columns": [
+        {
+          "name": "ID",
+          "raw": "int unsigned NOT NULL AUTO_INCREMENT"
+        },
+        {
+          "name": "user_ID",
+          "raw": "int unsigned NOT NULL"
+        },
+        {
+          "name": "order_number",
+          "raw": "varchar(50) NOT NULL"
+        },
+        {
+          "name": "total_amount",
+          "raw": "decimal(10,2) NOT NULL DEFAULT '0.00'"
+        },
+        {
+          "name": "order_status",
+          "raw": "enum('Pending','Processing','Completed','Cancelled','Refunded') NOT NULL DEFAULT 'Pending'"
+        },
+        {
+          "name": "status",
+          "raw": "bit(1) NOT NULL DEFAULT b'1'"
+        },
+        {
+          "name": "creation_date",
+          "raw": "datetime NOT NULL DEFAULT CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "last_update",
+          "raw": "datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP"
+        }
+      ],
+      "constraints": [
+        "PRIMARY KEY (`ID`)",
+        "UNIQUE KEY `uk_order_number` (`order_number`)",
+        "KEY `fk_orders_user` (`user_ID`)",
+        "CONSTRAINT `fk_orders_user` FOREIGN KEY (`user_ID`) REFERENCES `tb_users` (`ID`)"
+      ],
+      "engine": "InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci",
+      "insertStatements": [],
+      "rowCount": 0,
+      "parseFailures": []
+    },
+    {
+      "name": "tb_payment_transaction",
+      "columns": [
+        {
+          "name": "ID",
+          "raw": "int unsigned NOT NULL AUTO_INCREMENT"
+        },
+        {
+          "name": "payment_ID",
+          "raw": "int unsigned NOT NULL"
+        },
+        {
+          "name": "transaction_type",
+          "raw": "enum('Charge','Refund','Authorization','Void') NOT NULL DEFAULT 'Charge'"
+        },
+        {
+          "name": "amount",
+          "raw": "decimal(10,2) NOT NULL DEFAULT '0.00'"
+        },
+        {
+          "name": "currency",
+          "raw": "varchar(3) NOT NULL DEFAULT 'MXN'"
+        },
+        {
+          "name": "gateway_transaction_id",
+          "raw": "varchar(255) DEFAULT NULL"
+        },
+        {
+          "name": "gateway_response",
+          "raw": "text"
+        },
+        {
+          "name": "operation_status",
+          "raw": "enum('Pending','Completed','Failed','Cancelled') NOT NULL DEFAULT 'Pending'"
+        },
+        {
+          "name": "status",
+          "raw": "bit(1) NOT NULL DEFAULT b'1'"
+        },
+        {
+          "name": "creation_date",
+          "raw": "datetime NOT NULL DEFAULT CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "last_update",
+          "raw": "datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP"
+        }
+      ],
+      "constraints": [
+        "PRIMARY KEY (`ID`)",
+        "KEY `fk_payment_transaction` (`payment_ID`)",
+        "CONSTRAINT `fk_payment_transaction` FOREIGN KEY (`payment_ID`) REFERENCES `tb_payments` (`ID`)"
+      ],
+      "engine": "InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci",
+      "insertStatements": [],
+      "rowCount": 0,
+      "parseFailures": []
+    },
+    {
+      "name": "tb_payments",
+      "columns": [
+        {
+          "name": "ID",
+          "raw": "int unsigned NOT NULL AUTO_INCREMENT"
+        },
+        {
+          "name": "user_ID",
+          "raw": "int unsigned NOT NULL"
+        },
+        {
+          "name": "payment_method_type_ID",
+          "raw": "int unsigned NOT NULL"
+        },
+        {
+          "name": "user_payment_method_ID",
+          "raw": "int unsigned DEFAULT NULL"
+        },
+        {
+          "name": "total_amount",
+          "raw": "decimal(10,2) NOT NULL DEFAULT '0.00'"
+        },
+        {
+          "name": "currency",
+          "raw": "varchar(3) NOT NULL DEFAULT 'MXN'"
+        },
+        {
+          "name": "status",
+          "raw": "bit(1) NOT NULL DEFAULT b'1'"
+        },
+        {
+          "name": "creation_date",
+          "raw": "datetime NOT NULL DEFAULT CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "last_update",
+          "raw": "datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP"
+        }
+      ],
+      "constraints": [
+        "PRIMARY KEY (`ID`)",
+        "KEY `fk_payments_user` (`user_ID`)",
+        "KEY `fk_payments_method_type` (`payment_method_type_ID`)",
+        "KEY `fk_payments_user_method` (`user_payment_method_ID`)",
+        "CONSTRAINT `fk_payments_method_type` FOREIGN KEY (`payment_method_type_ID`) REFERENCES `tbc_payment_method_types` (`ID`)",
+        "CONSTRAINT `fk_payments_user` FOREIGN KEY (`user_ID`) REFERENCES `tb_users` (`ID`)",
+        "CONSTRAINT `fk_payments_user_method` FOREIGN KEY (`user_payment_method_ID`) REFERENCES `tbd_user_payment_methods` (`ID`)"
+      ],
+      "engine": "InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci",
+      "insertStatements": [],
+      "rowCount": 0,
+      "parseFailures": []
+    },
+    {
+      "name": "tb_people",
+      "columns": [
+        {
+          "name": "person_ID",
+          "raw": "bigint unsigned NOT NULL AUTO_INCREMENT"
+        },
+        {
+          "name": "user_ID",
+          "raw": "int unsigned NOT NULL"
+        },
+        {
+          "name": "courtesy_title_ID",
+          "raw": "char(3) DEFAULT NULL"
+        },
+        {
+          "name": "given_names",
+          "raw": "varchar(150) NOT NULL"
+        },
+        {
+          "name": "family_names",
+          "raw": "varchar(150) NOT NULL"
+        },
+        {
+          "name": "birth_date",
+          "raw": "date DEFAULT NULL"
+        },
+        {
+          "name": "gender",
+          "raw": "enum('Masculino','Femenino','Prefiero no decirlo') NOT NULL DEFAULT 'Prefiero no decirlo'"
+        },
+        {
+          "name": "country_code",
+          "raw": "char(2) DEFAULT NULL"
+        },
+        {
+          "name": "phone",
+          "raw": "varchar(25) DEFAULT NULL"
+        },
+        {
+          "name": "status",
+          "raw": "bit(1) NOT NULL DEFAULT b'1'"
+        },
+        {
+          "name": "creation_date",
+          "raw": "datetime NOT NULL DEFAULT CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "last_update",
+          "raw": "datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+        }
+      ],
+      "constraints": [
+        "PRIMARY KEY (`person_ID`)",
+        "KEY `fk_people_user` (`user_ID`)",
+        "CONSTRAINT `fk_people_user` FOREIGN KEY (`user_ID`) REFERENCES `tb_users` (`ID`)"
+      ],
+      "engine": "InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci",
+      "insertStatements": [],
+      "rowCount": 0,
+      "parseFailures": []
+    },
+    {
+      "name": "tb_products",
+      "columns": [
+        {
+          "name": "ID",
+          "raw": "int unsigned NOT NULL AUTO_INCREMENT"
+        },
+        {
+          "name": "SKU",
+          "raw": "varchar(50) NOT NULL"
+        },
+        {
+          "name": "name",
+          "raw": "varchar(250) NOT NULL"
+        },
+        {
+          "name": "description",
+          "raw": "text"
+        },
+        {
+          "name": "current_price",
+          "raw": "decimal(10,2) NOT NULL DEFAULT '0.00'"
+        },
+        {
+          "name": "current_stock",
+          "raw": "int unsigned NOT NULL DEFAULT '0'"
+        },
+        {
+          "name": "status",
+          "raw": "bit(1) DEFAULT b'1'"
+        },
+        {
+          "name": "creation_date",
+          "raw": "datetime NOT NULL DEFAULT CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "last_update",
+          "raw": "datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP"
+        }
+      ],
+      "constraints": [
+        "PRIMARY KEY (`ID`)",
+        "UNIQUE KEY `SKU` (`SKU`)"
+      ],
+      "engine": "InnoDB AUTO_INCREMENT=10242 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci",
+      "insertStatements": [
+        5270,
+        1732
+      ],
+      "rowCount": 7002,
+      "parseFailures": []
+    },
+    {
+      "name": "tb_refunds",
+      "columns": [
+        {
+          "name": "ID",
+          "raw": "int unsigned NOT NULL AUTO_INCREMENT"
+        },
+        {
+          "name": "payment_ID",
+          "raw": "int unsigned NOT NULL"
+        },
+        {
+          "name": "cancellation_ID",
+          "raw": "int unsigned DEFAULT NULL"
+        },
+        {
+          "name": "return_ID",
+          "raw": "int unsigned DEFAULT NULL"
+        },
+        {
+          "name": "refund_amount",
+          "raw": "decimal(10,2) NOT NULL DEFAULT '0.00'"
+        },
+        {
+          "name": "refund_reason",
+          "raw": "text NOT NULL"
+        },
+        {
+          "name": "refund_status",
+          "raw": "enum('Pending','Processing','Completed','Failed') NOT NULL DEFAULT 'Pending'"
+        },
+        {
+          "name": "gateway_refund_id",
+          "raw": "varchar(255) DEFAULT NULL"
+        },
+        {
+          "name": "status",
+          "raw": "bit(1) NOT NULL DEFAULT b'1'"
+        },
+        {
+          "name": "creation_date",
+          "raw": "datetime NOT NULL DEFAULT CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "last_update",
+          "raw": "datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP"
+        }
+      ],
+      "constraints": [
+        "PRIMARY KEY (`ID`)",
+        "KEY `fk_refunds_payment` (`payment_ID`)",
+        "KEY `fk_refunds_cancellation` (`cancellation_ID`)",
+        "KEY `fk_refunds_return` (`return_ID`)",
+        "CONSTRAINT `fk_refunds_cancellation` FOREIGN KEY (`cancellation_ID`) REFERENCES `tb_cancellations` (`ID`)",
+        "CONSTRAINT `fk_refunds_payment` FOREIGN KEY (`payment_ID`) REFERENCES `tb_payments` (`ID`)",
+        "CONSTRAINT `fk_refunds_return` FOREIGN KEY (`return_ID`) REFERENCES `tb_returns` (`ID`)"
+      ],
+      "engine": "InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci",
+      "insertStatements": [],
+      "rowCount": 0,
+      "parseFailures": []
+    },
+    {
+      "name": "tb_returns",
+      "columns": [
+        {
+          "name": "ID",
+          "raw": "int unsigned NOT NULL AUTO_INCREMENT"
+        },
+        {
+          "name": "payment_ID",
+          "raw": "int unsigned NOT NULL"
+        },
+        {
+          "name": "product_ID",
+          "raw": "int unsigned NOT NULL"
+        },
+        {
+          "name": "user_ID",
+          "raw": "int unsigned NOT NULL"
+        },
+        {
+          "name": "quantity",
+          "raw": "int unsigned NOT NULL DEFAULT '1'"
+        },
+        {
+          "name": "return_reason",
+          "raw": "text NOT NULL"
+        },
+        {
+          "name": "return_status",
+          "raw": "enum('Requested','Received','Inspected','Accepted','Rejected') NOT NULL DEFAULT 'Requested'"
+        },
+        {
+          "name": "status",
+          "raw": "bit(1) NOT NULL DEFAULT b'1'"
+        },
+        {
+          "name": "creation_date",
+          "raw": "datetime NOT NULL DEFAULT CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "last_update",
+          "raw": "datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP"
+        }
+      ],
+      "constraints": [
+        "PRIMARY KEY (`ID`)",
+        "KEY `fk_returns_payment` (`payment_ID`)",
+        "KEY `fk_returns_product` (`product_ID`)",
+        "KEY `fk_returns_user` (`user_ID`)",
+        "CONSTRAINT `fk_returns_payment` FOREIGN KEY (`payment_ID`) REFERENCES `tb_payments` (`ID`)",
+        "CONSTRAINT `fk_returns_product` FOREIGN KEY (`product_ID`) REFERENCES `tb_products` (`ID`)",
+        "CONSTRAINT `fk_returns_user` FOREIGN KEY (`user_ID`) REFERENCES `tb_users` (`ID`)"
+      ],
+      "engine": "InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci",
+      "insertStatements": [],
+      "rowCount": 0,
+      "parseFailures": []
+    },
+    {
+      "name": "tb_shipments",
+      "columns": [
+        {
+          "name": "ID",
+          "raw": "int unsigned NOT NULL AUTO_INCREMENT"
+        },
+        {
+          "name": "payment_ID",
+          "raw": "int unsigned NOT NULL"
+        },
+        {
+          "name": "shipping_company",
+          "raw": "varchar(100) NOT NULL DEFAULT 'E-commerce Logistics'"
+        },
+        {
+          "name": "tracking_number",
+          "raw": "varchar(100) DEFAULT NULL"
+        },
+        {
+          "name": "shipping_cost",
+          "raw": "decimal(10,2) NOT NULL DEFAULT '0.00'"
+        },
+        {
+          "name": "shipping_status",
+          "raw": "enum('Pending','Preparing','Shipped','In_Transit','Delivered','Failed') NOT NULL DEFAULT 'Pending'"
+        },
+        {
+          "name": "shipped_date",
+          "raw": "datetime DEFAULT NULL"
+        },
+        {
+          "name": "estimated_delivery_date",
+          "raw": "datetime DEFAULT NULL"
+        },
+        {
+          "name": "actual_delivery_date",
+          "raw": "datetime DEFAULT NULL"
+        },
+        {
+          "name": "status",
+          "raw": "bit(1) NOT NULL DEFAULT b'1'"
+        },
+        {
+          "name": "creation_date",
+          "raw": "datetime NOT NULL DEFAULT CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "last_update",
+          "raw": "datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP"
+        }
+      ],
+      "constraints": [
+        "PRIMARY KEY (`ID`)",
+        "KEY `fk_shipments_payment` (`payment_ID`)",
+        "CONSTRAINT `fk_shipments_payment` FOREIGN KEY (`payment_ID`) REFERENCES `tb_payments` (`ID`)"
+      ],
+      "engine": "InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci",
+      "insertStatements": [],
+      "rowCount": 0,
+      "parseFailures": []
+    },
+    {
+      "name": "tb_user_addresses",
+      "columns": [
+        {
+          "name": "ID",
+          "raw": "bigint unsigned NOT NULL AUTO_INCREMENT"
+        },
+        {
+          "name": "user_ID",
+          "raw": "int unsigned NOT NULL"
+        },
+        {
+          "name": "label",
+          "raw": "varchar(100) DEFAULT NULL"
+        },
+        {
+          "name": "is_default",
+          "raw": "tinyint(1) NOT NULL DEFAULT '0'"
+        },
+        {
+          "name": "status",
+          "raw": "bit(1) NOT NULL DEFAULT b'1'"
+        },
+        {
+          "name": "creation_date",
+          "raw": "datetime NOT NULL DEFAULT CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "last_update",
+          "raw": "datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP"
+        }
+      ],
+      "constraints": [
+        "PRIMARY KEY (`ID`)",
+        "KEY `idx_user_address_user` (`user_ID`)",
+        "CONSTRAINT `fk_user_address_user` FOREIGN KEY (`user_ID`) REFERENCES `tb_users` (`ID`) ON DELETE RESTRICT"
+      ],
+      "engine": "InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci",
+      "insertStatements": [],
+      "rowCount": 0,
+      "parseFailures": []
+    },
+    {
+      "name": "tb_users",
+      "columns": [
+        {
+          "name": "ID",
+          "raw": "int unsigned NOT NULL AUTO_INCREMENT"
+        },
+        {
+          "name": "email",
+          "raw": "varchar(80) NOT NULL"
+        },
+        {
+          "name": "nick",
+          "raw": "varchar(100) NOT NULL"
+        },
+        {
+          "name": "password",
+          "raw": "varchar(255) NOT NULL"
+        },
+        {
+          "name": "creation_date",
+          "raw": "datetime NOT NULL DEFAULT CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "last_update",
+          "raw": "datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "last_login",
+          "raw": "datetime DEFAULT NULL"
+        },
+        {
+          "name": "status",
+          "raw": "bit(1) NOT NULL DEFAULT b'1'"
+        },
+        {
+          "name": "pais",
+          "raw": "varchar(50) DEFAULT NULL"
+        },
+        {
+          "name": "edad",
+          "raw": "int DEFAULT NULL"
+        },
+        {
+          "name": "gender",
+          "raw": "varchar(10) DEFAULT NULL"
+        },
+        {
+          "name": "genero",
+          "raw": "varchar(10) DEFAULT NULL"
+        }
+      ],
+      "constraints": [
+        "PRIMARY KEY (`ID`)",
+        "UNIQUE KEY `email` (`email`)",
+        "UNIQUE KEY `nickname` (`nick`)"
+      ],
+      "engine": "InnoDB AUTO_INCREMENT=8193 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci",
+      "insertStatements": [
+        4723,
+        2778
+      ],
+      "rowCount": 7501,
+      "parseFailures": []
+    },
+    {
+      "name": "tbc_categories",
+      "columns": [
+        {
+          "name": "ID",
+          "raw": "int unsigned NOT NULL AUTO_INCREMENT"
+        },
+        {
+          "name": "name",
+          "raw": "varchar(120) NOT NULL"
+        },
+        {
+          "name": "description",
+          "raw": "text"
+        },
+        {
+          "name": "sup_id_category",
+          "raw": "int unsigned DEFAULT NULL"
+        },
+        {
+          "name": "status",
+          "raw": "bit(1) NOT NULL DEFAULT b'1'"
+        },
+        {
+          "name": "creation_date",
+          "raw": "datetime NOT NULL DEFAULT CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "last_update",
+          "raw": "datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP"
+        }
+      ],
+      "constraints": [
+        "PRIMARY KEY (`ID`)",
+        "UNIQUE KEY `name` (`name`)",
+        "KEY `fk_superior_category` (`sup_id_category`)",
+        "CONSTRAINT `fk_superior_category` FOREIGN KEY (`sup_id_category`) REFERENCES `tbc_categories` (`ID`)"
+      ],
+      "engine": "InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci",
+      "insertStatements": [],
+      "rowCount": 0,
+      "parseFailures": []
+    },
+    {
+      "name": "tbc_payment_method_types",
+      "columns": [
+        {
+          "name": "ID",
+          "raw": "int unsigned NOT NULL AUTO_INCREMENT"
+        },
+        {
+          "name": "code",
+          "raw": "varchar(30) NOT NULL"
+        },
+        {
+          "name": "description",
+          "raw": "text NOT NULL"
+        },
+        {
+          "name": "status",
+          "raw": "bit(1) NOT NULL DEFAULT b'1'"
+        },
+        {
+          "name": "creation_date",
+          "raw": "datetime NOT NULL DEFAULT CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "last_update",
+          "raw": "datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP"
+        }
+      ],
+      "constraints": [
+        "PRIMARY KEY (`ID`)",
+        "UNIQUE KEY `code_UNIQUE` (`code`)"
+      ],
+      "engine": "InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci",
+      "insertStatements": [],
+      "rowCount": 0,
+      "parseFailures": []
+    },
+    {
+      "name": "tbd_address_components",
+      "columns": [
+        {
+          "name": "ID",
+          "raw": "bigint unsigned NOT NULL AUTO_INCREMENT"
+        },
+        {
+          "name": "address_ID",
+          "raw": "bigint unsigned NOT NULL"
+        },
+        {
+          "name": "value",
+          "raw": "varchar(255) NOT NULL"
+        },
+        {
+          "name": "component_type",
+          "raw": "varchar(50) NOT NULL"
+        },
+        {
+          "name": "status",
+          "raw": "bit(1) NOT NULL DEFAULT b'1'"
+        },
+        {
+          "name": "address_sup_ID",
+          "raw": "bigint unsigned DEFAULT NULL"
+        },
+        {
+          "name": "creation_date",
+          "raw": "datetime NOT NULL DEFAULT CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "last_update",
+          "raw": "datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP"
+        }
+      ],
+      "constraints": [
+        "PRIMARY KEY (`ID`)",
+        "UNIQUE KEY `uk_address_component` (`address_ID`,`ID`)",
+        "KEY `idx_address_parent` (`address_ID`,`address_sup_ID`)",
+        "CONSTRAINT `fk_component_address` FOREIGN KEY (`address_ID`) REFERENCES `tb_user_addresses` (`ID`) ON DELETE RESTRICT",
+        "CONSTRAINT `fk_component_parent` FOREIGN KEY (`address_ID`, `address_sup_ID`) REFERENCES `tbd_address_components` (`address_ID`, `ID`) ON DELETE RESTRICT"
+      ],
+      "engine": "InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci",
+      "insertStatements": [],
+      "rowCount": 0,
+      "parseFailures": []
+    },
+    {
+      "name": "tbd_cancellation_items",
+      "columns": [
+        {
+          "name": "cancellation_ID",
+          "raw": "int unsigned NOT NULL"
+        },
+        {
+          "name": "product_ID",
+          "raw": "int unsigned NOT NULL"
+        },
+        {
+          "name": "quantity",
+          "raw": "int unsigned NOT NULL DEFAULT '1'"
+        },
+        {
+          "name": "cancellation_reason",
+          "raw": "text"
+        },
+        {
+          "name": "status",
+          "raw": "bit(1) NOT NULL DEFAULT b'1'"
+        },
+        {
+          "name": "creation_date",
+          "raw": "datetime NOT NULL DEFAULT CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "last_update",
+          "raw": "datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP"
+        }
+      ],
+      "constraints": [
+        "PRIMARY KEY (`cancellation_ID`,`product_ID`)",
+        "KEY `fk_cancellation_items_product` (`product_ID`)",
+        "CONSTRAINT `fk_cancellation_items_cancellation` FOREIGN KEY (`cancellation_ID`) REFERENCES `tb_order_cancellations` (`ID`)",
+        "CONSTRAINT `fk_cancellation_items_product` FOREIGN KEY (`product_ID`) REFERENCES `tb_products` (`ID`)"
+      ],
+      "engine": "InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci",
+      "insertStatements": [],
+      "rowCount": 0,
+      "parseFailures": []
+    },
+    {
+      "name": "tbd_cart_items",
+      "columns": [
+        {
+          "name": "cart_ID",
+          "raw": "int unsigned NOT NULL"
+        },
+        {
+          "name": "product_ID",
+          "raw": "int unsigned NOT NULL"
+        },
+        {
+          "name": "quantity",
+          "raw": "int unsigned NOT NULL DEFAULT '1'"
+        },
+        {
+          "name": "unit_price",
+          "raw": "decimal(10,2) NOT NULL DEFAULT '0.00'"
+        },
+        {
+          "name": "status",
+          "raw": "bit(1) NOT NULL DEFAULT b'1'"
+        },
+        {
+          "name": "creation_date",
+          "raw": "datetime NOT NULL DEFAULT CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "last_update",
+          "raw": "datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP"
+        }
+      ],
+      "constraints": [
+        "PRIMARY KEY (`cart_ID`,`product_ID`)",
+        "KEY `fk_cart_items_product` (`product_ID`)",
+        "CONSTRAINT `fk_cart_items_cart` FOREIGN KEY (`cart_ID`) REFERENCES `tb_carts` (`ID`)",
+        "CONSTRAINT `fk_cart_items_product` FOREIGN KEY (`product_ID`) REFERENCES `tb_products` (`ID`)"
+      ],
+      "engine": "InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci",
+      "insertStatements": [],
+      "rowCount": 0,
+      "parseFailures": []
+    },
+    {
+      "name": "tbd_order_items",
+      "columns": [
+        {
+          "name": "order_ID",
+          "raw": "int unsigned NOT NULL"
+        },
+        {
+          "name": "product_ID",
+          "raw": "int unsigned NOT NULL"
+        },
+        {
+          "name": "quantity",
+          "raw": "int unsigned NOT NULL DEFAULT '1'"
+        },
+        {
+          "name": "unit_price",
+          "raw": "decimal(10,2) NOT NULL DEFAULT '0.00'"
+        },
+        {
+          "name": "subtotal",
+          "raw": "decimal(10,2) GENERATED ALWAYS AS ((`quantity` * `unit_price`)) STORED"
+        },
+        {
+          "name": "status",
+          "raw": "bit(1) NOT NULL DEFAULT b'1'"
+        },
+        {
+          "name": "creation_date",
+          "raw": "datetime NOT NULL DEFAULT CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "last_update",
+          "raw": "datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP"
+        }
+      ],
+      "constraints": [
+        "PRIMARY KEY (`order_ID`,`product_ID`)",
+        "KEY `fk_order_items_product` (`product_ID`)",
+        "CONSTRAINT `fk_order_items_order` FOREIGN KEY (`order_ID`) REFERENCES `tb_orders` (`ID`)",
+        "CONSTRAINT `fk_order_items_product` FOREIGN KEY (`product_ID`) REFERENCES `tb_products` (`ID`)"
+      ],
+      "engine": "InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci",
+      "insertStatements": [],
+      "rowCount": 0,
+      "parseFailures": []
+    },
+    {
+      "name": "tbd_products_categories",
+      "columns": [
+        {
+          "name": "category_ID",
+          "raw": "int unsigned NOT NULL"
+        },
+        {
+          "name": "product_ID",
+          "raw": "int unsigned NOT NULL"
+        },
+        {
+          "name": "status",
+          "raw": "bit(1) NOT NULL DEFAULT b'1'"
+        },
+        {
+          "name": "creation_date",
+          "raw": "datetime NOT NULL DEFAULT CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "last_update",
+          "raw": "datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP"
+        }
+      ],
+      "constraints": [
+        "PRIMARY KEY (`category_ID`,`product_ID`)",
+        "KEY `fk_product` (`product_ID`)",
+        "CONSTRAINT `fk_category` FOREIGN KEY (`category_ID`) REFERENCES `tbc_categories` (`ID`)",
+        "CONSTRAINT `fk_product` FOREIGN KEY (`product_ID`) REFERENCES `tb_products` (`ID`)"
+      ],
+      "engine": "InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci",
+      "insertStatements": [],
+      "rowCount": 0,
+      "parseFailures": []
+    },
+    {
+      "name": "tbd_products_users_providers",
+      "columns": [
+        {
+          "name": "user_ID",
+          "raw": "int unsigned NOT NULL"
+        },
+        {
+          "name": "product_ID",
+          "raw": "int unsigned NOT NULL"
+        },
+        {
+          "name": "type_ownership",
+          "raw": "varchar(50) DEFAULT NULL"
+        },
+        {
+          "name": "status",
+          "raw": "bit(1) NOT NULL DEFAULT b'1'"
+        },
+        {
+          "name": "avalaible_date",
+          "raw": "datetime DEFAULT NULL"
+        },
+        {
+          "name": "creation_date",
+          "raw": "datetime NOT NULL DEFAULT CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "last_update",
+          "raw": "datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP"
+        }
+      ],
+      "constraints": [
+        "PRIMARY KEY (`user_ID`,`product_ID`)",
+        "KEY `fk_product_provider` (`product_ID`)",
+        "CONSTRAINT `fk_product_provider` FOREIGN KEY (`product_ID`) REFERENCES `tb_products` (`ID`)",
+        "CONSTRAINT `fk_user_provider` FOREIGN KEY (`user_ID`) REFERENCES `tb_users` (`ID`)"
+      ],
+      "engine": "InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci",
+      "insertStatements": [],
+      "rowCount": 0,
+      "parseFailures": []
+    },
+    {
+      "name": "tbd_return_items",
+      "columns": [
+        {
+          "name": "return_ID",
+          "raw": "int unsigned NOT NULL"
+        },
+        {
+          "name": "product_ID",
+          "raw": "int unsigned NOT NULL"
+        },
+        {
+          "name": "quantity",
+          "raw": "int unsigned NOT NULL DEFAULT '1'"
+        },
+        {
+          "name": "item_condition",
+          "raw": "enum('New','Opened','Defective','Damaged') NOT NULL DEFAULT 'Opened'"
+        },
+        {
+          "name": "status",
+          "raw": "bit(1) NOT NULL DEFAULT b'1'"
+        },
+        {
+          "name": "creation_date",
+          "raw": "datetime NOT NULL DEFAULT CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "last_update",
+          "raw": "datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP"
+        }
+      ],
+      "constraints": [
+        "PRIMARY KEY (`return_ID`,`product_ID`)",
+        "KEY `fk_return_items_product` (`product_ID`)",
+        "CONSTRAINT `fk_return_items_product` FOREIGN KEY (`product_ID`) REFERENCES `tb_products` (`ID`)",
+        "CONSTRAINT `fk_return_items_return` FOREIGN KEY (`return_ID`) REFERENCES `tb_returns` (`ID`)"
+      ],
+      "engine": "InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci",
+      "insertStatements": [],
+      "rowCount": 0,
+      "parseFailures": []
+    },
+    {
+      "name": "tbd_user_payment_methods",
+      "columns": [
+        {
+          "name": "ID",
+          "raw": "int unsigned NOT NULL AUTO_INCREMENT"
+        },
+        {
+          "name": "user_ID",
+          "raw": "int unsigned NOT NULL"
+        },
+        {
+          "name": "payment_method_type_ID",
+          "raw": "int unsigned NOT NULL"
+        },
+        {
+          "name": "provider",
+          "raw": "varchar(60) NOT NULL"
+        },
+        {
+          "name": "provider_method_ref",
+          "raw": "varchar(255) NOT NULL"
+        },
+        {
+          "name": "label",
+          "raw": "varchar(100) DEFAULT NULL"
+        },
+        {
+          "name": "last_four",
+          "raw": "char(4) DEFAULT NULL"
+        },
+        {
+          "name": "is_default",
+          "raw": "tinyint(1) NOT NULL DEFAULT '0'"
+        },
+        {
+          "name": "status",
+          "raw": "bit(1) NOT NULL DEFAULT b'1'"
+        },
+        {
+          "name": "creation_date",
+          "raw": "datetime NOT NULL DEFAULT CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "last_update",
+          "raw": "datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP"
+        }
+      ],
+      "constraints": [
+        "PRIMARY KEY (`ID`)",
+        "UNIQUE KEY `uk_provider_method` (`provider`,`provider_method_ref`)",
+        "KEY `user_ID` (`user_ID`)",
+        "KEY `payment_method_type_ID` (`payment_method_type_ID`)",
+        "CONSTRAINT `tbd_user_payment_methods_ibfk_1` FOREIGN KEY (`user_ID`) REFERENCES `tb_users` (`ID`)",
+        "CONSTRAINT `tbd_user_payment_methods_ibfk_2` FOREIGN KEY (`payment_method_type_ID`) REFERENCES `tbc_payment_method_types` (`ID`)"
+      ],
+      "engine": "InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci",
+      "insertStatements": [],
+      "rowCount": 0,
+      "parseFailures": []
+    },
+    {
+      "name": "tbd_users_wishlist_products",
+      "columns": [
+        {
+          "name": "user_ID",
+          "raw": "int unsigned NOT NULL"
+        },
+        {
+          "name": "product_ID",
+          "raw": "int unsigned NOT NULL"
+        },
+        {
+          "name": "status",
+          "raw": "bit(1) NOT NULL DEFAULT b'1'"
+        },
+        {
+          "name": "creation_date",
+          "raw": "datetime NOT NULL DEFAULT CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "last_update",
+          "raw": "datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP"
+        }
+      ],
+      "constraints": [
+        "PRIMARY KEY (`user_ID`,`product_ID`)",
+        "KEY `fk_products3` (`product_ID`)",
+        "CONSTRAINT `fk_products3` FOREIGN KEY (`product_ID`) REFERENCES `tb_products` (`ID`)",
+        "CONSTRAINT `fk_user2` FOREIGN KEY (`user_ID`) REFERENCES `tb_users` (`ID`)"
+      ],
+      "engine": "InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci",
+      "insertStatements": [],
+      "rowCount": 0,
+      "parseFailures": []
+    }
+  ],
+  "createTableCount": 26,
+  "insertCount": 81,
+  "viewCreateCount": 27,
+  "triggers": [],
+  "procedures": [],
+  "functions": [],
+  "ending": "1 SET SQL_NOTES=@OLD_SQL_NOTES */;\r\n\r\n-- Dump completed on 2026-11-07 19:03:20\r\n"
+}
