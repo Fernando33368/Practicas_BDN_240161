@@ -12,5 +12,5 @@ Periodo: Septiembre - Diciembre 2026
 |---|---|---|---|---|
 |1.|Metodología de Evaluación de la Materia| Transcribir en libreta y comprender la metodología y fechas de evaluación de la asignatura| 5| 🟢 Conlcuida |
 |2.|Conexiones Remotas para Bases de Datos SQL| Crear y administrar usuarios y privilegios para conexiones desde internet o redes locales|60 |🟢 Conlcuida|
-|3.|Manipulacion de Datos en Conexiones Remotas a Bases de Datos Relacionales|Crear Procedimientos Almacenados, Funciones, Tablas Derivada, Importacion de Datos en el Contexto E-Commerce|??|🟡 En progreso|
-|4.|Examen Práctico Instalación de Postgre y MySQL en un VPS|Instalar, Configurar, Desplegar y Simular datos en los Servicios de Bases de Datos Relacionales Remotas|100|🟡 En progreso|
+|3.|<a href="https://github.com/Fernando33368/Practicas_BDN_240161/tree/master/docs"> Manipulacion de Datos en Conexiones Remotas a Bases de Datos Relacionales </a>|Crear Procedimientos Almacenados, Funciones, Tablas Derivada, Importacion de Datos en el Contexto E-Commerce|??|🟢 Concluida |
+|4.|Examen Práctico Instalación de Postgre y MySQL en un VPS|Instalar, Configurar, Desplegar y Simular datos en los Servicios de Bases de Datos Relacionales Remotas|100|🟢 Concluida |
