@@ -90,9 +90,9 @@ GRANT 'user_not_registered', 'common_user', 'buyer' TO 'AppMobile'@'%';
    ESTABLECER ROLES PREDETERMINADOS
    ============================================================ */
 
+SET DEFAULT ROLE 'admin' TO 'marco.ramirez'@'%';
 
-
-SET DEFAULT ROLE 'admin' TO 'fernando.miguel'@'%';
+SET DEFAULT ROLE 'superadmin' TO 'fernando.miguel'@'%';
 
 SET DEFAULT ROLE 'support' TO 'carlos.cabrera'@'%';
 
