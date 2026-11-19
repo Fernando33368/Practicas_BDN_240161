@@ -1,10 +1,8 @@
-name: Publish data dictionary to GitHub Pages
+﻿name: Publish docs to GitHub Pages
 on:
   push:
-    branches: [master, Practica03]
-    paths:
-      - "docs/**"
-      - ".github/workflows/pages.yml"
+    branches:
+      - master
   workflow_dispatch:
 permissions:
   contents: read
